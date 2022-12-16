@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.QuoteException;
@@ -10,7 +10,7 @@ import java.util.*;
  */
 
 
-public abstract class AbstractDao<T extends Idable> implements Dao<T>{
+public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     private Connection connection;
     private String tableName;
 
