@@ -3,6 +3,8 @@ package ba.unsa.etf.rpr.dao;
 /*
  * Factory method for singleton implementation of DAOs
  */
+
+/*
 public class DaoFactory {
 
     private static final NewSubjectsDao newSubjectsDao = new NewSubjectsDaoSQLImpl();
@@ -24,4 +26,4 @@ public class DaoFactory {
         return reasonsDao;
     }
 
-}
+}*/

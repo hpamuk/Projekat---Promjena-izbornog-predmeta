@@ -1,14 +1,14 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Idable;
-import ba.unsa.etf.rpr.exceptions.QuoteException;
+// import ba.unsa.etf.rpr.exceptions.QuoteException;
 import java.sql.*;
 import java.util.*;
 
 /*
  Abstract class that implements core DAO CRUD methods for every entity
  */
-
+/*
 
 public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     private Connection connection;
@@ -104,7 +104,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next(); // we know that there is one key
             item.setId(rs.getInt(1)); //set id to return it back */
-
+/*
             return item;
         }catch (SQLException e){
             throw new QuoteException(e.getMessage(), e);
@@ -141,6 +141,8 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
       Accepts KV storage of column names and return CSV of columns and question marks for insert statement
       Example: (id, name, date) ?,?,?
      */
+
+/*
     private Map.Entry<String, String> prepareInsertParts(Map<String, Object> row){
         StringBuilder columns = new StringBuilder();
         StringBuilder questions = new StringBuilder();
@@ -164,6 +166,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
      @param row
      * @return
      */
+/*
     private String prepareUpdateParts(Map<String, Object> row){
         StringBuilder columns = new StringBuilder();
 
@@ -178,4 +181,4 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
         return columns.toString();
     }
-}
+}*/
