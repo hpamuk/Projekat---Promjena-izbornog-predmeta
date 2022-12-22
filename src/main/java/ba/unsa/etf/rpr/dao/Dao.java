@@ -16,5 +16,5 @@ public interface Dao<T> {
     List<T> getAll() throws QuoteException;
 
 }
-*/
 
+*/

@@ -1,13 +1,25 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.controllers;
 
 // povezi sa fxmlom i dodaj potrebne importe
 
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
+import ba.unsa.etf.rpr.MainController;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+
 
 public class LoginController {
-    TextField fieldUsername;
+    public TextField fieldUsername;
 
     // vidi ispravnost za email
     @FXML
@@ -23,12 +35,13 @@ public class LoginController {
     }
 
 
-    public void loginClick(ActionEvent actionEvent) {
+    public void loginClick(ActionEvent actionEvent) throws IOException {
         if(fieldUsername.getText().isEmpty()) {
             return;
         }
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
+
         Parent root = loader.load();
         MainController main = loader.getController();
         // ovdje cu postaviti u labeli dobrodosao korisnice
