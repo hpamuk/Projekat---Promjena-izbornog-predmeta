@@ -21,7 +21,7 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class LoginController {
     public TextField fieldUsername;
 
-    // vidi ispravnost za email
+    // vidi ispravnost za email , vidi sto ne radi initialize
     @FXML
     public void initialize() {
         fieldUsername.getStyleClass().add("poljeNijeIspravno");
