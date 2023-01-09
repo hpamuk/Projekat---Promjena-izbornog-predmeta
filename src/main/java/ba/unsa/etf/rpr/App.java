@@ -16,7 +16,7 @@ public class App extends Application {
         LoginController loginController = new LoginController();
         fxmlLoader.setController(loginController);
         Parent root = fxmlLoader.load();
-        primaryStage.setTitle("Hello, World!");
+        primaryStage.setTitle("Prijava za promjenu predmeta");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setResizable(false);
         primaryStage.show();

@@ -19,24 +19,24 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
 public class LoginController {
-    public TextField fieldUsername;
+    public TextField usernameField;
 
     // vidi ispravnost za email , vidi sto ne radi initialize
     @FXML
     public void initialize() {
-        fieldUsername.getStyleClass().add("poljeNijeIspravno");
-        fieldUsername.textProperty().addListener((observableValue, o, n) -> {
+        usernameField.getStyleClass().add("poljeNijeIspravno");
+        usernameField.textProperty().addListener((observableValue, o, n) -> {
             if (n.isEmpty()) {
-                fieldUsername.getStyleClass().add("poljeNijeIspravno");
+                usernameField.getStyleClass().add("poljeNijeIspravno");
             } else {
-                fieldUsername.getStyleClass().removeAll("poljeNijeIspravno");
+                usernameField.getStyleClass().removeAll("poljeNijeIspravno");
             }
         });
     }
 
 
     public void loginClick(ActionEvent actionEvent) throws IOException {
-        if(fieldUsername.getText().isEmpty()) {
+        if(usernameField.getText().isEmpty()) {
             return;
         }
         Stage stage = new Stage();

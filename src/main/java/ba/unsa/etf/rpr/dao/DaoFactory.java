@@ -6,7 +6,7 @@ package ba.unsa.etf.rpr.dao;
 
 
 public class DaoFactory {
-
+/*
     private static final NewSubjectsDao newSubjectsDao = new NewSubjectsDaoSQLImpl();
     private static final OldSubjectsDao oldSubjectsDao = new OldSubjectsDaoSQLImpl();
     private static final ReasonsDao reasonsDao = new ReasonsDaoSQLImpl();
@@ -25,5 +25,5 @@ public class DaoFactory {
     public static ReasonsDao reasonsDao(){
         return reasonsDao;
     }
-
+*/
 }

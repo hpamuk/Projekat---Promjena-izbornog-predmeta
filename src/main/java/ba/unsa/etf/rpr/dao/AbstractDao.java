@@ -8,7 +8,7 @@ import java.util.*;
 /*
  Abstract class that implements core DAO CRUD methods for every entity
  */
-
+/*
 
 public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     private Connection connection;
@@ -80,7 +80,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
             throw new MyException(e.getMessage(), e);
         }
     }
-
+/*
     public T add(T item) throws MyException{
         Map<String, Object> row = object2row(item);
         Map.Entry<String, String> columns = prepareInsertParts(row);
