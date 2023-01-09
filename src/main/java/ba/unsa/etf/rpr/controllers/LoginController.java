@@ -25,7 +25,7 @@ public class LoginController {
     public TextField usernameField;
 
 
-    // vidi ispravnost za email , vidi sto ne radi initialize
+    // vidi sto ne radi initialize
    /* @FXML
     public void initialize() {
         usernameField.getStyleClass().add("poljeNijeIspravno");
@@ -69,7 +69,7 @@ public class LoginController {
         MainController mainController = new MainController(); // ovo
         loader.setController(mainController);
         Parent root = loader.load();
-       // mainController.label.setText(mainController.label.getText() + usernameField.getText());
+        mainController.label.setText(mainController.label.getText() + usernameField.getText());
         stage.setTitle("Promjena izbornog predmeta");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.show();
