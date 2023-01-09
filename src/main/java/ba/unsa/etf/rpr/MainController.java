@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr;
 
-
-import java.awt.*;
+import javafx.scene.control.Label;
 
 public class MainController {
     public Label label;
