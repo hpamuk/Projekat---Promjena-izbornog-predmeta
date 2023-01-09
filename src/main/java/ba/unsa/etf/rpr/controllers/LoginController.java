@@ -4,12 +4,15 @@ package ba.unsa.etf.rpr.controllers;
 
 
 import ba.unsa.etf.rpr.MainController;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -21,8 +24,9 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class LoginController {
     public TextField usernameField;
 
+
     // vidi ispravnost za email , vidi sto ne radi initialize
-    @FXML
+   /* @FXML
     public void initialize() {
         usernameField.getStyleClass().add("poljeNijeIspravno");
         usernameField.textProperty().addListener((observableValue, o, n) -> {
@@ -32,19 +36,41 @@ public class LoginController {
                 usernameField.getStyleClass().removeAll("poljeNijeIspravno");
             }
         });
+    }*/
+/*
+    @FXML
+    public void initialize() {
+        usernameField.getStyleClass().add("poljeNijeIspravno");
+        usernameField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
+                if (n.isEmpty()) {
+                    usernameField.getStyleClass().add("poljeNijeIspravno");
+                } else {
+                    usernameField.getStyleClass().removeAll("poljeNijeIspravno");
+                }
+            }
+        });
     }
-
+    */
 
     public void loginClick(ActionEvent actionEvent) throws IOException {
         if(usernameField.getText().isEmpty()) {
-            return;
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prazno polje");
+            alert.setHeaderText("Prazan username!");
+            alert.setContentText("Morate unijeti svoj username");
+
+            alert.showAndWait();
+             return;
         }
         Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+        MainController mainController = new MainController(); // ovo
+        loader.setController(mainController);
         Parent root = loader.load();
-        MainController main = loader.getController();
-        // ovdje cu postaviti u labeli dobrodosao korisnice
+
+        mainController.label.setText(mainController.label.getText() + usernameField.getText());
         stage.setTitle("Promjena izbornog predmeta");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.show();
