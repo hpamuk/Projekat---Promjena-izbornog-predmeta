@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.dao;
 
-public class NewSubjectsDaoSQLImpl extends AbstractDao implements NewSubjectsDao{
+import ba.unsa.etf.rpr.domain.NewSubject;
+
+public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements NewSubjectsDao{
     public static NewSubjectsDao getInstance() {
 
     }
