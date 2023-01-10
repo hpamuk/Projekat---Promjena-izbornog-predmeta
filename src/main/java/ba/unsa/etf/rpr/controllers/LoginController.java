@@ -4,6 +4,7 @@ package ba.unsa.etf.rpr.controllers;
 
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -21,6 +22,21 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class LoginController {
     public TextField usernameField;
     public PasswordField passwordField;
+
+    // me radi za crveno
+    @FXML
+    public void initialize() {
+        usernameField.textProperty().addListener((obs, o, n) -> {
+                if (usernameField.getText().isEmpty()) {
+                    usernameField.getStyleClass().removeAll("poljeIspravno");
+                    usernameField.getStyleClass().add("poljeNijeIspravno");
+                } else {
+                   usernameField.getStyleClass().removeAll("poljeNijeIspravno");
+                    usernameField.getStyleClass().add("poljeIspravno");
+                }
+        });
+    }
+
 
     // vidi sto ne radi initialize
    /* @FXML

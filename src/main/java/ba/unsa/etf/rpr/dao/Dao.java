@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.dao;
 
-//import ba.unsa.etf.rpr.exceptions.QuoteException;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.List;
  Root interface for all DAO classes
  */
 
-// dodaj dependencies za ovo
+// dodaj dependencies za ovo , mozda sam dodala ???
 
 public interface Dao<T> {
     T getById(int id) throws MyException;
