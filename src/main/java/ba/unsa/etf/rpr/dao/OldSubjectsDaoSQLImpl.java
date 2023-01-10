@@ -1,4 +1,5 @@
 package ba.unsa.etf.rpr.dao;
 
-public class OldSubjectsDaoSQLImpl {
+public class OldSubjectsDaoSQLImpl extends AbstractDao implements OldSubjectsDao {
+
 }
