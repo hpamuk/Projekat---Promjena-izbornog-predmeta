@@ -74,7 +74,7 @@
          </children>
       </HBox>
       <Separator prefWidth="200.0" GridPane.rowIndex="1" />
-      <Label text="OVJDE NESTO IDE SA TABELAMA" GridPane.rowIndex="4" />
+      <Label text="OVJDE NESTO IDE SA TABELAMA. dodavanje predmeta mozda" GridPane.columnSpan="2" GridPane.rowIndex="4" />
       <HBox prefHeight="62.0" prefWidth="525.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
          <children>
             <Label prefHeight="26.0" prefWidth="282.0" text="Razlog zbog kojeg želite mijenjati izborni predmet:">
