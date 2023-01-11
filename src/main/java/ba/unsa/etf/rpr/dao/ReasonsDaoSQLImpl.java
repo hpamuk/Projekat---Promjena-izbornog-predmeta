@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.domain.OldSubject;
 import ba.unsa.etf.rpr.domain.Reason;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
