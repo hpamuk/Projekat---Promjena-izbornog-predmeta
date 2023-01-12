@@ -9,6 +9,12 @@ import javafx.stage.Stage;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
+
+/**
+ * The type App.
+ *
+ * @author henap
+ */
 public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -22,6 +28,12 @@ public class App extends Application {
         primaryStage.show();
 
     }
+
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

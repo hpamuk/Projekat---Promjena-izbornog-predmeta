@@ -19,11 +19,23 @@ import java.io.IOException;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
+/**
+ * The type Login controller.
+ */
 public class LoginController {
+    /**
+     * The Username field.
+     */
     public TextField usernameField;
+    /**
+     * The Password field.
+     */
     public PasswordField passwordField;
 
-    // me radi za crveno
+    /**
+     * Initialize.
+     */
+// me radi za crveno
     @FXML
     public void initialize() {
 
@@ -40,6 +52,12 @@ public class LoginController {
         });
     }
 
+    /**
+     * Login click.
+     *
+     * @param actionEvent the action event
+     * @throws IOException the io exception
+     */
     public void loginClick(ActionEvent actionEvent) throws IOException {
         if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -61,6 +79,11 @@ public class LoginController {
         stage.show();
     }
 
+    /**
+     * Cancel click.
+     *
+     * @param actionEvent the action event
+     */
     public void cancelClick(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Stage stage = (Stage) n.getScene().getWindow();
