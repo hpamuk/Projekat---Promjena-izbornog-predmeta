@@ -1,18 +1,7 @@
-/*
-#loginBtn {
-   -fx-background-color: lightskyblue;
-}
-
-#cancelBtn {
-   -fx-background-color: lightred;
-}
-*/
-
 .poljeNijeIspravno{
       -fx-background-color: lightred;
-  }
-
+ }
 .poljeIspravno {
-    -fx-background-color: yellowgreen;
+    -fx-background-color: limegreen;
 }
 

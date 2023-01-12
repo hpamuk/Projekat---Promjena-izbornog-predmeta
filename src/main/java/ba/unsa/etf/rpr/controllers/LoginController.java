@@ -26,46 +26,19 @@ public class LoginController {
     // me radi za crveno
     @FXML
     public void initialize() {
+
         usernameField.textProperty().addListener((obs, o, n) -> {
-                if (usernameField.getText().isEmpty()) {
-                    usernameField.getStyleClass().removeAll("poljeIspravno");
-                    usernameField.getStyleClass().add("poljeNijeIspravno");
-                } else {
-                   usernameField.getStyleClass().removeAll("poljeNijeIspravno");
-                    usernameField.getStyleClass().add("poljeIspravno");
-                }
+//                if (usernameField.getText().isEmpty()) {
+//                    usernameField.getStyleClass().removeAll("poljeIspravno");
+//                    usernameField.getStyleClass().addAll("poljeNijeIspravno");
+//                } else {
+//
+//                   usernameField.getStyleClass().removeAll("poljeNijeIspravno");
+//                    usernameField.getStyleClass().addAll("poljeIspravno");
+//                }
+
         });
     }
-
-
-    // vidi sto ne radi initialize
-   /* @FXML
-    public void initialize() {
-        usernameField.getStyleClass().add("poljeNijeIspravno");
-        usernameField.textProperty().addListener((observableValue, o, n) -> {
-            if (n.isEmpty()) {
-                usernameField.getStyleClass().add("poljeNijeIspravno");
-            } else {
-                usernameField.getStyleClass().removeAll("poljeNijeIspravno");
-            }
-        });
-    }*/
-/*
-    @FXML
-    public void initialize() {
-        usernameField.getStyleClass().add("poljeNijeIspravno");
-        usernameField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
-                if (n.isEmpty()) {
-                    usernameField.getStyleClass().add("poljeNijeIspravno");
-                } else {
-                    usernameField.getStyleClass().removeAll("poljeNijeIspravno");
-                }
-            }
-        });
-    }
-    */
 
     public void loginClick(ActionEvent actionEvent) throws IOException {
         if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
