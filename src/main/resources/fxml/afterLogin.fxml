@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="444.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.00001220703126" minWidth="10.0" prefWidth="339.59998779296876" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.39996337890625" minWidth="10.0" prefWidth="105.20001220703125" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="94.00000610351563" minHeight="10.0" prefHeight="50.80000610351563" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="248.39999999999998" minHeight="10.0" prefHeight="219.59999389648436" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="46.80002441406248" minHeight="0.0" prefHeight="21.79997558593749" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label fx:id="wellcomeLabel" text="Dobrodošao korisniče">
+         <GridPane.margin>
+            <Insets left="15.0" top="-20.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Vaši izborni predmeti su:">
+         <GridPane.margin>
+            <Insets left="15.0" top="37.0" />
+         </GridPane.margin>
+      </Label>
+      <TableView fx:id="oldSubjectTable" prefHeight="199.0" prefWidth="321.0" GridPane.rowIndex="1">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="65.59998321533203" text="C2" />
+            <TableColumn prefWidth="35.2000732421875" text="C2" />
+        </columns>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="15.0" right="5.0" top="10.0" />
+         </GridPane.margin>
+      </TableView>
+      <Button maxWidth="-Infinity" mnemonicParsing="false" onAction="#changeClick" prefHeight="26.0" prefWidth="74.0" text="Promijeni" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="12.0" top="185.0" />
+         </GridPane.margin>
+      </Button>
+   </children>
+</GridPane>
