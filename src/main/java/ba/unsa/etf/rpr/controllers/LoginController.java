@@ -69,12 +69,12 @@ public class LoginController {
             return;
         }
         Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
-        MainController mainController = new MainController(); // ovo
-        loader.setController(mainController);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/afterLogin.fxml"));
+        AfterLoginController afterLoginController = new AfterLoginController(); // ovo
+        loader.setController(afterLoginController);
         Parent root = loader.load();
-        mainController.label.setText(mainController.label.getText() + usernameField.getText());
-        stage.setTitle("Promjena izbornog predmeta");
+        afterLoginController.wellcomeLabel.setText(afterLoginController.wellcomeLabel.getText() + " " + usernameField.getText() + "!");
+        stage.setTitle("Prikaz izbornih predmeta");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.show();
     }

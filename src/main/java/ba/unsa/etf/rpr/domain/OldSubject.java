@@ -9,6 +9,21 @@ public class OldSubject implements Idable{
     private int brCasovaSemestralno;
     private int brCasovaSedmicno;
 
+    public OldSubject() {
+        this.id = 0;
+        this.naziv = null;
+        this.nazivProfesora = null;
+        this.brCasovaSemestralno = 0;
+        this.brCasovaSedmicno = 0;
+    }
+   /*
+    public OldSubject(int id, String naziv, String nazivProfesora, int brCasovaSemestralno, int brCasovaSedmicno) {
+        this.id = id;
+        this.naziv = naziv;
+        this.nazivProfesora = nazivProfesora;
+        this.brCasovaSemestralno = brCasovaSemestralno;
+        this.brCasovaSedmicno = brCasovaSedmicno;
+    }*/
 
     public String getNaziv() {
         return naziv;
@@ -49,7 +64,7 @@ public class OldSubject implements Idable{
 
     @Override
     public int getId() {
-        return 0;
+        return id;
     }
 
     @Override
