@@ -9,8 +9,21 @@ import java.io.IOException;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
+/**
+ * The type Main controller.
+ */
 public class MainController {
+    /**
+     * The Label.
+     */
     public Label label;
+
+    /**
+     * Submit click.
+     *
+     * @param actionEvent the action event
+     * @throws IOException the io exception
+     */
     public void submitClick(ActionEvent actionEvent) throws IOException {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Uspješan zahtjev!");
@@ -19,6 +32,11 @@ public class MainController {
         alert.showAndWait();
     }
 
+    /**
+     * Cancel click.
+     *
+     * @param actionEvent the action event
+     */
     public void cancelClick(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Stage stage = (Stage) n.getScene().getWindow();

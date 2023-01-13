@@ -66,7 +66,7 @@ public class LoginController {
             alert.setContentText("Morate unijeti svoj username");
 
             alert.showAndWait();
-             return;
+            return;
         }
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
