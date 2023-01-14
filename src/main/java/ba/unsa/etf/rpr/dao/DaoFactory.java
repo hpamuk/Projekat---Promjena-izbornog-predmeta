@@ -9,7 +9,7 @@ public class DaoFactory {
 
     private static final NewSubjectsDao newSubjectsDao =  NewSubjectsDaoSQLImpl.getInstance();
     private static final OldSubjectsDao oldSubjectsDao =  OldSubjectsDaoSQLImpl.getInstance();
-    private static final ReasonsDao reasonsDao = ReasonsDaoSQLImpl.getInstance();
+    private static final UsersDao usersDao = UsersDaoSQLImpl.getInstance();
 
     private DaoFactory(){
     }
@@ -22,8 +22,8 @@ public class DaoFactory {
         return oldSubjectsDao;
     }
 
-    public static ReasonsDao reasonsDao(){
-        return reasonsDao;
+    public static UsersDao reasonsDao(){
+        return usersDao;
     }
 
 }

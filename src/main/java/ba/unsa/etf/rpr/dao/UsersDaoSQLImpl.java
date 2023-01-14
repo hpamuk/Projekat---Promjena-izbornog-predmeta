@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.domain.Reason;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
@@ -12,7 +11,7 @@ import java.util.TreeMap;
 public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
     private static  UsersDaoSQLImpl instance = null;
     private UsersDaoSQLImpl() {
-        super("User"); // ????? vidi kako se zove
+        super("Users");
     }
 
     public static UsersDaoSQLImpl getInstance(){
@@ -41,7 +40,7 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
         try {
             User cat = new User();
             cat.setId(rs.getInt("id"));
-            cat.setImeIPrezime(rs.getString("name"));
+           // cat.setImeIPrezime(rs.getString("name"));
             return cat;
         } catch (SQLException e) {
             throw new MyException(e.getMessage(), e);
@@ -52,7 +51,9 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
     public Map<String, Object> object2row(User object) {
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
-        row.put("name", object.getImeIPrezime());
+       // row.put("name", object.getImeIPrezime());
         return row;
     }
+
+
 }

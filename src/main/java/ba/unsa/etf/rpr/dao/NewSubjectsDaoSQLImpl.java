@@ -9,7 +9,7 @@ import java.util.Map;
 public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements NewSubjectsDao{
     private static  NewSubjectsDao instance = null;
     private NewSubjectsDaoSQLImpl() {
-        super("newSubject"); // ????? vidi kako se zove
+        super("New subjects");
     }
 
     public static NewSubjectsDaoSQLImpl getInstance(){

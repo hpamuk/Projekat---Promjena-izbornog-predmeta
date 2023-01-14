@@ -12,7 +12,7 @@ import java.util.TreeMap;
 public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements OldSubjectsDao {
     private static  OldSubjectsDaoSQLImpl instance = null;
     private OldSubjectsDaoSQLImpl() {
-        super("oldSubject"); // ????? vidi kako se zove
+        super("Old Subjects");
     }
 
     public static OldSubjectsDaoSQLImpl getInstance(){
@@ -31,7 +31,7 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
         try {
             OldSubject cat = new OldSubject();
             cat.setId(rs.getInt("id"));
-            cat.setNaziv(rs.getString("name"));
+          //  cat.setNaziv(rs.getString("name"));
             return cat;
         } catch (SQLException e) {
             throw new MyException(e.getMessage(), e);
@@ -42,7 +42,7 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
     public Map<String, Object> object2row(OldSubject object) {
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
-        row.put("name", object.getNaziv());
+      //  row.put("name", object.getNaziv());
         return row;
     }
 
