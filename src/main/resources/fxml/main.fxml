@@ -14,6 +14,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.40001220703124" minWidth="10.0" prefWidth="250.2" />
@@ -83,6 +85,17 @@
                </HBox.margin>
             </Label>
             <ChoiceBox prefHeight="26.0" prefWidth="256.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Ne odgovara mi koncept predmeta." />
+                     <String fx:value="Ne odgovara mi predavač na predmetu." />
+                     <String fx:value="Ne odgovaraju mi asistenti predmeta." />
+                     <String fx:value="Smatram da mi predmet neće biti od koristi." />
+                     <String fx:value="Ne sviđa mi se sadržaj predmeta." />
+                     <String fx:value="Ne svdiđa mi se koncept ocjenjivanja." />
+                     <String fx:value="Ostalo:" />
+                  </FXCollections>
+               </items>
                <HBox.margin>
                   <Insets left="5.0" top="20.0" />
                </HBox.margin>
