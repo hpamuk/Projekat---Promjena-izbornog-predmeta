@@ -1,7 +1,10 @@
 package ba.unsa.etf.rpr.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -25,11 +28,14 @@ public class MainController {
      * @throws IOException the io exception
      */
     public void submitClick(ActionEvent actionEvent) throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Uspješan zahtjev!");
-        alert.setHeaderText(null);
-        alert.setContentText("Uspješno ste podnijeli prijavu za promjenu izbornog predmeta!");
-        alert.showAndWait();
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/lastOne.fxml"));
+        LastController lastController = new LastController(); // ovo
+        loader.setController(lastController);
+        Parent root = loader.load();
+        stage.setTitle("Vaši novi izborni predmeti!");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.show();
     }
 
     /**

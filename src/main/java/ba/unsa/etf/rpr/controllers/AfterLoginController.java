@@ -48,7 +48,7 @@ public class AfterLoginController {
     public void changeClick(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
-        MainController mainController = new MainController(); // ovo
+        MainController mainController = new MainController();
         loader.setController(mainController);
         Parent root = loader.load();
         stage.setTitle("Promjena izbornog predmeta");
