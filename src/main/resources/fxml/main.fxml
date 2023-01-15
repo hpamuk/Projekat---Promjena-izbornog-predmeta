@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -7,6 +9,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,9 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.40001220703124" minWidth="10.0" prefWidth="250.2" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.5999877929688" minWidth="10.0" prefWidth="111.0" />
@@ -24,14 +26,15 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="231.20001220703125" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints maxHeight="103.60001220703126" minHeight="10.0" prefHeight="36.80000610351563" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="103.60001220703126" minHeight="2.799999999999997" prefHeight="14.399993896484375" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="199.1999938964844" minHeight="0.0" prefHeight="42.79999694824218" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="199.1999938964844" minHeight="10.0" prefHeight="55.39999389648436" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="199.1999938964844" minHeight="10.0" prefHeight="137.00000610351566" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="356.2000198364258" minHeight="10.0" prefHeight="63.400000000000034" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="269.99999084472654" minHeight="10.0" prefHeight="90.99997558593748" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="235.80002441406253" minHeight="10.0" prefHeight="111.00002441406252" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="103.60001220703126" minHeight="10.0" prefHeight="30.399989700317384" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="103.60001220703126" minHeight="2.799999999999997" prefHeight="17.79999694824219" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="199.1999938964844" minHeight="0.0" prefHeight="33.000003051757815" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="199.1999938964844" minHeight="10.0" prefHeight="42.60000305175781" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="225.6" minHeight="10.0" prefHeight="58.8" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="313.999983215332" minHeight="10.0" prefHeight="165.20000000000002" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="356.2000198364258" minHeight="10.0" prefHeight="66.60003662109375" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="269.99999084472654" minHeight="10.0" prefHeight="76.19996337890626" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="235.80002441406253" minHeight="10.0" prefHeight="113.60000000000002" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <Label fx:id="label" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="169.0" text="Došli ste na promjenu predmeta">
@@ -39,23 +42,23 @@
             <Insets left="10.0" top="10.0" />
          </GridPane.margin>
       </Label>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
          <children>
-            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#submitClick" prefHeight="26.0" prefWidth="176.0" text="Submit">
+            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#submitClick" prefHeight="26.0" prefWidth="176.0" text="Podnesi">
                <HBox.margin>
                   <Insets top="50.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cancelClick" prefHeight="26.0" prefWidth="178.0" text="Cancel">
+            <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cancelClick" prefHeight="26.0" prefWidth="178.0" text="Poništi">
                <HBox.margin>
-                  <Insets left="20.0" right="10.0" top="50.0" />
+                  <Insets left="10.0" right="13.0" top="50.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
       <Label text="Želite li pisanu potvrdu promjene predmeta?" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets left="7.0" />
+            <Insets left="10.0" />
          </GridPane.margin>
       </Label>
       <HBox prefHeight="34.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -76,15 +79,18 @@
          </children>
       </HBox>
       <Separator prefWidth="200.0" GridPane.rowIndex="1" />
-      <Label text="Predmeti kojima možete zamijeniti svoje izborne predmete su:" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-      <HBox prefHeight="62.0" prefWidth="525.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
+      <Label prefHeight="30.0" prefWidth="330.0" text="Predmeti kojima možete zamijeniti svoje izborne predmete su:" GridPane.columnSpan="2" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin></Label>
+      <HBox prefHeight="66.0" prefWidth="538.0" GridPane.columnSpan="4" GridPane.rowIndex="6">
          <children>
             <Label prefHeight="26.0" prefWidth="282.0" text="Razlog zbog kojeg želite mijenjati izborni predmet:">
                <HBox.margin>
-                  <Insets top="20.0" />
+                  <Insets left="10.0" top="20.0" />
                </HBox.margin>
             </Label>
-            <ChoiceBox prefHeight="26.0" prefWidth="256.0">
+            <ChoiceBox prefHeight="26.0" prefWidth="228.0">
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="Ne odgovara mi koncept predmeta." />
@@ -102,7 +108,7 @@
             </ChoiceBox>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7">
          <children>
             <Label prefHeight="18.0" prefWidth="82.0" text="Ostalo:">
                <padding>
@@ -112,7 +118,7 @@
                   <Insets top="30.0" />
                </HBox.margin>
             </Label>
-            <TextArea prefHeight="134.0" prefWidth="210.0">
+            <TextArea prefHeight="76.0" prefWidth="230.0">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -123,7 +129,7 @@
          <children>
             <Label text="Ako da, kada želite da bude gotova potvrda?">
                <HBox.margin>
-                  <Insets top="18.0" />
+                  <Insets left="10.0" top="18.0" />
                </HBox.margin>
             </Label>
             <DatePicker prefHeight="26.0" prefWidth="217.0">
@@ -133,5 +139,16 @@
             </DatePicker>
          </children>
       </HBox>
+      <TableView fx:id="tableViewNewSubjects" prefHeight="165.0" prefWidth="469.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
+        <columns>
+          <TableColumn fx:id="colNaziv" prefWidth="107.20000684261322" text="Naziv predmeta" />
+          <TableColumn fx:id="colNazivProf" prefWidth="116.80001068115234" text="Profesor predmeta" />
+            <TableColumn fx:id="colbrCasovaSemestralno" minWidth="0.0" prefWidth="142.39996337890625" text="Br. časova semestralno" />
+            <TableColumn fx:id="colbrCasovaSedmicno" prefWidth="125.5999816894531" text="Br. časova sedmično" />
+        </columns>
+         <GridPane.margin>
+            <Insets left="30.0" />
+         </GridPane.margin>
+      </TableView>
    </children>
 </GridPane>

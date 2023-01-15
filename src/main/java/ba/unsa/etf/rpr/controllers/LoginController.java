@@ -33,26 +33,6 @@ public class LoginController {
     public PasswordField passwordField;
 
     /**
-     * Initialize.
-     */
-// me radi za crveno
-    @FXML
-    public void initialize() {
-
-        usernameField.textProperty().addListener((obs, o, n) -> {
-//                if (usernameField.getText().isEmpty()) {
-//                    usernameField.getStyleClass().removeAll("poljeIspravno");
-//                    usernameField.getStyleClass().addAll("poljeNijeIspravno");
-//                } else {
-//
-//                   usernameField.getStyleClass().removeAll("poljeNijeIspravno");
-//                    usernameField.getStyleClass().addAll("poljeIspravno");
-//                }
-
-        });
-    }
-
-    /**
      * Login click.
      *
      * @param actionEvent the action event
@@ -61,13 +41,30 @@ public class LoginController {
     public void loginClick(ActionEvent actionEvent) throws IOException {
         if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Prazno polje");
-            alert.setHeaderText("Prazan username!");
-            alert.setContentText("Morate unijeti svoj username");
-
+            alert.setTitle("Prazno jedno od polja!");
+            alert.setHeaderText("Prazan username ili password!");
+            alert.setContentText("Morate unijeti svoj username ili password.");
             alert.showAndWait();
             return;
         }
+        if(!(usernameField.getText().equals("mmujic1") || usernameField.getText().equals("mmehic1")
+                || usernameField.getText().equals("ffatic1") || usernameField.getText().equals("sselmic1"))) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Zabrana pristupa!");
+            alert.setHeaderText("Ne možete pristupiti sistemu!");
+            alert.setContentText("Niste korisnik sistema, ili ste pogriješili Vaš username.");
+            alert.showAndWait();
+            return;
+        }
+        else if(passwordField.getText().length() < 6) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Pogrešno unesen password!");
+            alert.setHeaderText("Prekratak password!");
+            alert.setContentText("Vaš password mora imati 6 karaktera.");
+            alert.showAndWait();
+            return;
+        }
+
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/afterLogin.fxml"));
         AfterLoginController afterLoginController = new AfterLoginController(); // ovo
