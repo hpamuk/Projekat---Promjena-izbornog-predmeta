@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.MyException;
 import java.sql.*;
 import java.util.*;
+import java.io.IOException;
 
 /*
  Abstract class that implements core DAO CRUD methods for every entity

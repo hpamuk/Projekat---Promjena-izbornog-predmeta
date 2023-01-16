@@ -25,7 +25,7 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
             instance=null;
     }
 
-    @Override
+ /*   @Override
     public User add(User item) throws MyException {
         return null;
     }
@@ -34,13 +34,13 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
     public User update(User item) throws MyException {
         return null;
     }
-
+*/
     @Override
     public User row2object(ResultSet rs) throws MyException {
         try {
             User cat = new User();
             cat.setId(rs.getInt("id"));
-           // cat.setImeIPrezime(rs.getString("name"));
+            cat.setImeIPrezime(rs.getString("colImeIPrezime"));
             return cat;
         } catch (SQLException e) {
             throw new MyException(e.getMessage(), e);
@@ -51,7 +51,7 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
     public Map<String, Object> object2row(User object) {
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
-       // row.put("name", object.getImeIPrezime());
+        row.put("colImeIPrezime", object.getImeIPrezime());
         return row;
     }
 

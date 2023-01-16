@@ -22,7 +22,7 @@ public class DaoFactory {
         return oldSubjectsDao;
     }
 
-    public static UsersDao reasonsDao(){
+    public static UsersDao usersDao(){
         return usersDao;
     }
 

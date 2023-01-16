@@ -4,10 +4,12 @@ import ba.unsa.etf.rpr.domain.NewSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements NewSubjectsDao{
-    private static  NewSubjectsDao instance = null;
+    private static  NewSubjectsDaoSQLImpl instance = null;
     private NewSubjectsDaoSQLImpl() {
         super("New subjects");
     }
@@ -15,7 +17,7 @@ public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements Ne
     public static NewSubjectsDaoSQLImpl getInstance(){
         if(instance==null)
             instance = new NewSubjectsDaoSQLImpl();
-        return (NewSubjectsDaoSQLImpl) instance; // sto je trazilo castovanje
+        return instance; // sto je trazilo castovanje
     }
 
     public static void removeInstance(){
@@ -25,11 +27,21 @@ public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements Ne
 
     @Override
     public NewSubject row2object(ResultSet rs) throws MyException {
-        return null;
+        try {
+            NewSubject cat = new NewSubject();
+            cat.setId(rs.getInt("id"));
+            cat.setNaziv(rs.getString("naziv"));
+            return cat;
+        } catch (SQLException e) {
+            throw new MyException(e.getMessage(), e);
+        }
     }
 
     @Override
     public Map<String, Object> object2row(NewSubject object) {
-        return null;
+        Map<String, Object> row = new TreeMap<>();
+        row.put("id", object.getId());
+        row.put("naziv", object.getNaziv());
+        return row;
     }
 }

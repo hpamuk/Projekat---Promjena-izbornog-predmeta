@@ -31,9 +31,9 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
         try {
             OldSubject cat = new OldSubject();
             cat.setId(rs.getInt("id"));
-          //  cat.setNaziv(rs.getString("name"));
+            cat.setNaziv(rs.getString("naziv"));
             return cat;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new MyException(e.getMessage(), e);
         }
     }
@@ -42,7 +42,7 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
     public Map<String, Object> object2row(OldSubject object) {
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
-      //  row.put("name", object.getNaziv());
+        row.put("naziv", object.getNaziv());
         return row;
     }
 

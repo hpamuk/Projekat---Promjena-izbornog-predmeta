@@ -1,18 +1,18 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.OldSubjectManager;
 import ba.unsa.etf.rpr.dao.OldSubjectsDao;
 import ba.unsa.etf.rpr.dao.OldSubjectsDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.OldSubject;
+import ba.unsa.etf.rpr.exceptions.MyException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -28,18 +28,25 @@ public class AfterLoginController {
     public TableColumn colbrCasovaSemestralno;
     public TableColumn colBrCasovaSedmicno;
 
-    public OldSubjectsDao oldSubjectsDao = OldSubjectsDaoSQLImpl.getInstance();
-    public ObservableList<OldSubject> oldSubjectsList;
+    private final OldSubjectManager oldSubjectManager = new OldSubjectManager();
+
+  //  public OldSubjectsDao oldSubjectsDao = OldSubjectsDaoSQLImpl.getInstance();
+   // public ObservableList<OldSubject> oldSubjectsList;
     @FXML
-    public void initialize() {
-      //  tableViewOldSubjects.setItems(oldSubjectsList);
-        colNaziv.setCellValueFactory(new PropertyValueFactory("naziv"));
+    public void initialize() throws MyException {
+        try{
+            tableViewOldSubjects.setItems(FXCollections.observableList(oldSubjectManager.getAll()));
+        }
+        catch (MyException e) {
+            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+        }
+
+        /*colNaziv.setCellValueFactory(new PropertyValueFactory("naziv"));
         colNazivProf.setCellValueFactory(new PropertyValueFactory("nazivProfesora"));
         colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory("brCasovaSemestralno"));
         colBrCasovaSedmicno.setCellValueFactory(new PropertyValueFactory("brCasovaSedmicno"));
-
+*/
     }
-
 
 
 
