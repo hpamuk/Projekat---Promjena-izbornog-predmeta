@@ -47,12 +47,14 @@ public class LoginController {
             alert.showAndWait();
             return;
         }
-        if(!(usernameField.getText().equals("mmujic1") || usernameField.getText().equals("mmehic1")
-                || usernameField.getText().equals("ffatic1") || usernameField.getText().equals("sselmic1"))) {
+        if(!((usernameField.getText().equals("mmujic1") && passwordField.getText().equals("123456")) ||
+                (usernameField.getText().equals("mmehic1") && passwordField.getText().equals("654321")) ||
+                (usernameField.getText().equals("ffatic1") && passwordField.getText().equals("123123")) ||
+                (usernameField.getText().equals("sselmic1") && passwordField.getText().equals("321321")))) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Zabrana pristupa!");
             alert.setHeaderText("Ne možete pristupiti sistemu!");
-            alert.setContentText("Niste korisnik sistema, ili ste pogriješili Vaš username.");
+            alert.setContentText("Niste korisnik sistema, ili ste pogriješili Vaš username ili password.");
             alert.showAndWait();
             return;
         }

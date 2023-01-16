@@ -5,14 +5,14 @@ import java.util.Objects;
 public class OldSubject implements Idable{
     private int id;
     private String naziv;
-    private String nazivProfesora;
+    private String profesor;
     private int brCasovaSemestralno;
     private int brCasovaSedmicno;
 
     public OldSubject() {
         this.id = 0;
         this.naziv = null;
-        this.nazivProfesora = null;
+        this.profesor = null;
         this.brCasovaSemestralno = 0;
         this.brCasovaSedmicno = 0;
     }
@@ -34,11 +34,11 @@ public class OldSubject implements Idable{
     }
 
     public String getNazivProfesora() {
-        return nazivProfesora;
+        return profesor;
     }
 
     public void setNazivProfesora(String nazivProfesora) {
-        this.nazivProfesora = nazivProfesora;
+        this.profesor = nazivProfesora;
     }
 
     public int getBrCasovaSemestralno() {
@@ -72,12 +72,12 @@ public class OldSubject implements Idable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OldSubject that = (OldSubject) o;
-        return id == that.id && brCasovaSemestralno == that.brCasovaSemestralno && brCasovaSedmicno == that.brCasovaSedmicno && Objects.equals(naziv, that.naziv) && Objects.equals(nazivProfesora, that.nazivProfesora);
+        return id == that.id && brCasovaSemestralno == that.brCasovaSemestralno && brCasovaSedmicno == that.brCasovaSedmicno && Objects.equals(naziv, that.naziv) && Objects.equals(profesor, that.profesor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, naziv, nazivProfesora, brCasovaSemestralno, brCasovaSedmicno);
+        return Objects.hash(id, naziv, profesor, brCasovaSemestralno, brCasovaSedmicno);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class OldSubject implements Idable{
         return "OldSubject{" +
                 "id=" + id +
                 ", naziv='" + naziv + '\'' +
-                ", nazivProfesora='" + nazivProfesora + '\'' +
+                ", nazivProfesora='" + profesor + '\'' +
                 ", brCasovaSemestralno=" + brCasovaSemestralno +
                 ", brCasovaSedmicno=" + brCasovaSedmicno +
                 '}';

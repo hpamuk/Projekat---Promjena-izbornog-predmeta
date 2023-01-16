@@ -23,10 +23,11 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class AfterLoginController {
     public Label wellcomeLabel;
     public TableView<OldSubject> tableViewOldSubjects;
-    public TableColumn<OldSubject, Integer> colNaziv;
-    public TableColumn colNazivProf;
-    public TableColumn colbrCasovaSemestralno;
-    public TableColumn colBrCasovaSedmicno;
+    public TableColumn<OldSubject, String> colNaziv;
+    public TableColumn<OldSubject, String>  colNazivProf;
+    public TableColumn<OldSubject, Integer>  colbrCasovaSemestralno;
+    public TableColumn<OldSubject, Integer>  colBrCasovaSedmicno;
+    public TableColumn<OldSubject, Integer> colId;
 
     private final OldSubjectManager oldSubjectManager = new OldSubjectManager();
 
@@ -34,11 +35,23 @@ public class AfterLoginController {
    // public ObservableList<OldSubject> oldSubjectsList;
     @FXML
     public void initialize() throws MyException {
-        colNaziv.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer>("naziv"));
-        colNazivProf.setCellValueFactory(new PropertyValueFactory("nazivProfesora"));
-        colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory("brCasovaSemestralno"));
-        colBrCasovaSedmicno.setCellValueFactory(new PropertyValueFactory("brCasovaSedmicno"));
+        colId.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer>("id"));
+        colNaziv.setCellValueFactory(new PropertyValueFactory<OldSubject, String>("naziv"));
+        colNazivProf.setCellValueFactory(new PropertyValueFactory<OldSubject, String> ("profesor"));
+        colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer> ("brCasovaSemestralno"));
+        colBrCasovaSedmicno.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer> ("brCasovaSedmicno"));
+        refreshSubjects();
     }
+
+    private void refreshSubjects(){
+        try {
+            tableViewOldSubjects.setItems(FXCollections.observableList(oldSubjectManager.getAll()));
+            tableViewOldSubjects.refresh();
+        } catch (MyException e) {
+            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+        }
+    }
+
 
 
 
