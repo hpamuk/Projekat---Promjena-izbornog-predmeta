@@ -30,7 +30,7 @@ public class AfterLoginController {
     public TableColumn<OldSubject, Integer> colId;
 
     private final OldSubjectManager oldSubjectManager = new OldSubjectManager();
-
+/*
   //  public OldSubjectsDao oldSubjectsDao = OldSubjectsDaoSQLImpl.getInstance();
    // public ObservableList<OldSubject> oldSubjectsList;
     @FXML
@@ -52,7 +52,7 @@ public class AfterLoginController {
         }
     }
 
-
+*/
 
 
 

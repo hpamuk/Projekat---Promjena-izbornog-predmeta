@@ -5,14 +5,14 @@ import java.util.Objects;
 public class NewSubject implements Idable{
     private int id;
     private String naziv;
-    private String nazivProfesora;
+    private String profesor;
     private int brCasovaSemestralno;
     private int brCasovaSedmicno;
 
     public NewSubject() {
         this.id = 0;
         this.naziv = null;
-        this.nazivProfesora = null;
+        this.profesor = null;
         this.brCasovaSemestralno = 0;
         this.brCasovaSedmicno = 0;
     }
@@ -20,7 +20,7 @@ public class NewSubject implements Idable{
     public NewSubject(int id, String naziv, String nazivProfesora, int brCasovaSemestralno, int brCasovaSedmicno) {
         this.id = id;
         this.naziv = naziv;
-        this.nazivProfesora = nazivProfesora;
+        this.profesor = nazivProfesora;
         this.brCasovaSemestralno = brCasovaSemestralno;
         this.brCasovaSedmicno = brCasovaSedmicno;
     }
@@ -34,11 +34,11 @@ public class NewSubject implements Idable{
     }
 
     public String getNazivProfesora() {
-        return nazivProfesora;
+        return profesor;
     }
 
     public void setNazivProfesora(String nazivProfesora) {
-        this.nazivProfesora = nazivProfesora;
+        this.profesor = nazivProfesora;
     }
 
     public int getBrCasovaSemestralno() {
@@ -72,12 +72,13 @@ public class NewSubject implements Idable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NewSubject that = (NewSubject) o;
-        return id == that.id && brCasovaSemestralno == that.brCasovaSemestralno && brCasovaSedmicno == that.brCasovaSedmicno && Objects.equals(naziv, that.naziv) && Objects.equals(nazivProfesora, that.nazivProfesora);
+        return id == that.id && brCasovaSemestralno == that.brCasovaSemestralno && brCasovaSedmicno == that.brCasovaSedmicno
+                && Objects.equals(naziv, that.naziv) && Objects.equals(profesor, that.profesor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, naziv, nazivProfesora, brCasovaSemestralno, brCasovaSedmicno);
+        return Objects.hash(id, naziv, profesor, brCasovaSemestralno, brCasovaSedmicno);
     }
 
     @Override
@@ -85,7 +86,7 @@ public class NewSubject implements Idable{
         return "NewSubject{" +
                 "id=" + id +
                 ", naziv='" + naziv + '\'' +
-                ", nazivProfesora='" + nazivProfesora + '\'' +
+                ", nazivProfesora='" + profesor + '\'' +
                 ", brCasovaSemestralno=" + brCasovaSemestralno +
                 ", brCasovaSedmicno=" + brCasovaSedmicno +
                 '}';

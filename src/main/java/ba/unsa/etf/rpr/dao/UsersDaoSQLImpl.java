@@ -40,7 +40,8 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
         try {
             User cat = new User();
             cat.setId(rs.getInt("id"));
-            cat.setImeIPrezime(rs.getString("colImeIPrezime"));
+            cat.setImeIPrezime(rs.getString("username"));
+            cat.setBrIndeksa(rs.getInt("brIndeksa"));
             return cat;
         } catch (SQLException e) {
             throw new MyException(e.getMessage(), e);
@@ -51,7 +52,7 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
     public Map<String, Object> object2row(User object) {
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
-        row.put("colImeIPrezime", object.getImeIPrezime());
+        row.put("username", object.getImeIPrezime());
         return row;
     }
 

@@ -56,7 +56,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
      * @return a Bean object for specific table
      * @throws MyException in case of error with db
      */
-    public abstract T row2object(ResultSet rs) throws MyException; // treba li mi ??????
+    public abstract T row2object(ResultSet rs) throws MyException;
 
     /**
      * Method for mapping Object into Map

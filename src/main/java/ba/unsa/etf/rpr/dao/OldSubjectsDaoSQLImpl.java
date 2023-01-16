@@ -36,7 +36,7 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
             cat.setBrCasovaSemestralno(rs.getInt("brCasovaSemestralno"));
             cat.setBrCasovaSedmicno(rs.getInt("brCasovaSedmicno"));
             return cat;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new MyException(e.getMessage(), e);
         }
     }
