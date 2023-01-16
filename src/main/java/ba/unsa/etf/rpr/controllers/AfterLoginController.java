@@ -23,7 +23,7 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class AfterLoginController {
     public Label wellcomeLabel;
     public TableView<OldSubject> tableViewOldSubjects;
-    public TableColumn colNaziv;
+    public TableColumn<OldSubject, Integer> colNaziv;
     public TableColumn colNazivProf;
     public TableColumn colbrCasovaSemestralno;
     public TableColumn colBrCasovaSedmicno;
@@ -34,18 +34,10 @@ public class AfterLoginController {
    // public ObservableList<OldSubject> oldSubjectsList;
     @FXML
     public void initialize() throws MyException {
-        try{
-            tableViewOldSubjects.setItems(FXCollections.observableList(oldSubjectManager.getAll()));
-        }
-        catch (MyException e) {
-            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
-        }
-
-        /*colNaziv.setCellValueFactory(new PropertyValueFactory("naziv"));
+        colNaziv.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer>("naziv"));
         colNazivProf.setCellValueFactory(new PropertyValueFactory("nazivProfesora"));
         colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory("brCasovaSemestralno"));
         colBrCasovaSedmicno.setCellValueFactory(new PropertyValueFactory("brCasovaSedmicno"));
-*/
     }
 
 
