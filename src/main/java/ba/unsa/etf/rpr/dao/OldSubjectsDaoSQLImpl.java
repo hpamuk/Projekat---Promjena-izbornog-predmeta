@@ -12,7 +12,7 @@ import java.util.TreeMap;
 public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements OldSubjectsDao {
     private static  OldSubjectsDaoSQLImpl instance = null;
     private OldSubjectsDaoSQLImpl() {
-        super("Old Subjects");
+        super("OldSubjects");
     }
 
     public static OldSubjectsDaoSQLImpl getInstance(){

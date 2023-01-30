@@ -12,7 +12,7 @@ import java.util.TreeMap;
 public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements NewSubjectsDao{
     private static  NewSubjectsDaoSQLImpl instance = null;
     private NewSubjectsDaoSQLImpl() {
-        super("New subjects");
+        super("NewSubjects");
     }
 
     public static NewSubjectsDaoSQLImpl getInstance(){
