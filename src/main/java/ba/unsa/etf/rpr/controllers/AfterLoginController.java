@@ -40,13 +40,12 @@ public class AfterLoginController {
         colNazivProf.setCellValueFactory(new PropertyValueFactory<OldSubject, String> ("profesor"));
         colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer> ("brCasovaSemestralno"));
         colBrCasovaSedmicno.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer> ("brCasovaSedmicno"));
-    refreshSubjects();
+        refreshSubjects();
     }
 
     private void refreshSubjects(){
         try {
             tableViewOldSubjects.setItems(FXCollections.observableList(oldSubjectManager.getAll()));
-
             tableViewOldSubjects.refresh();
         } catch (MyException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
