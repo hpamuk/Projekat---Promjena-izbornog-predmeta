@@ -1,17 +1,14 @@
 package ba.unsa.etf.rpr.domain;
 
 public class User implements Idable {
-    private int id;
+    private Integer id;
     private String username;
-    private int brIndeksa;
+    private Integer brIndeksa;
 
     public User() {
-        this.id = 0;
-        this.username = null;
-        this.brIndeksa = 0;
     }
 
-    public User(int id, String imeIPrezime, int brIndeksa) {
+    public User(Integer id, String imeIPrezime, Integer brIndeksa) {
         this.id = id;
         this.username = imeIPrezime;
         this.brIndeksa = brIndeksa;
@@ -29,12 +26,12 @@ public class User implements Idable {
         return brIndeksa;
     }
 
-    public void setBrIndeksa(int brIndeksa) {
+    public void setBrIndeksa(Integer brIndeksa) {
         this.brIndeksa = brIndeksa;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

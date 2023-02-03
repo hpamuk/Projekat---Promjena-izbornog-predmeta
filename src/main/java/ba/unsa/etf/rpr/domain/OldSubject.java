@@ -3,27 +3,23 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 public class OldSubject implements Idable{
-    private int id;
+    private Integer id;
     private String naziv;
     private String profesor;
-    private int brCasovaSemestralno;
-    private int brCasovaSedmicno;
+    private Integer brCasovaSemestralno;
+    private Integer brCasovaSedmicno;
 
     public OldSubject() {
-        this.id = 0;
-        this.naziv = null;
-        this.profesor = null;
-        this.brCasovaSemestralno = 0;
-        this.brCasovaSedmicno = 0;
+
     }
-   /*
-    public OldSubject(int id, String naziv, String nazivProfesora, int brCasovaSemestralno, int brCasovaSedmicno) {
+
+    public OldSubject(Integer id, String naziv, String nazivProfesora, Integer brCasovaSemestralno, Integer brCasovaSedmicno) {
         this.id = id;
         this.naziv = naziv;
-        this.nazivProfesora = nazivProfesora;
+        this.profesor = nazivProfesora;
         this.brCasovaSemestralno = brCasovaSemestralno;
         this.brCasovaSedmicno = brCasovaSedmicno;
-    }*/
+    }
 
     public String getNaziv() {
         return naziv;
@@ -45,7 +41,7 @@ public class OldSubject implements Idable{
         return brCasovaSemestralno;
     }
 
-    public void setBrCasovaSemestralno(int brCasovaSemestralno) {
+    public void setBrCasovaSemestralno(Integer brCasovaSemestralno) {
         this.brCasovaSemestralno = brCasovaSemestralno;
     }
 
@@ -53,12 +49,12 @@ public class OldSubject implements Idable{
         return brCasovaSedmicno;
     }
 
-    public void setBrCasovaSedmicno(int brCasovaSedmicno) {
+    public void setBrCasovaSedmicno(Integer brCasovaSedmicno) {
         this.brCasovaSedmicno = brCasovaSedmicno;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

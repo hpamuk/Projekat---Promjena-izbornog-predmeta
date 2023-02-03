@@ -3,21 +3,17 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 public class NewSubject implements Idable{
-    private int id;
+    private Integer id;
     private String naziv;
     private String profesor;
-    private int brCasovaSemestralno;
-    private int brCasovaSedmicno;
+    private Integer brCasovaSemestralno;
+    private Integer brCasovaSedmicno;
 
     public NewSubject() {
-        this.id = 0;
-        this.naziv = null;
-        this.profesor = null;
-        this.brCasovaSemestralno = 0;
-        this.brCasovaSedmicno = 0;
+
     }
 
-    public NewSubject(int id, String naziv, String nazivProfesora, int brCasovaSemestralno, int brCasovaSedmicno) {
+    public NewSubject(Integer id, String naziv, String nazivProfesora, Integer brCasovaSemestralno, Integer brCasovaSedmicno) {
         this.id = id;
         this.naziv = naziv;
         this.profesor = nazivProfesora;
@@ -45,7 +41,7 @@ public class NewSubject implements Idable{
         return brCasovaSemestralno;
     }
 
-    public void setBrCasovaSemestralno(int brCasovaSemestralno) {
+    public void setBrCasovaSemestralno(Integer brCasovaSemestralno) {
         this.brCasovaSemestralno = brCasovaSemestralno;
     }
 
@@ -53,12 +49,12 @@ public class NewSubject implements Idable{
         return brCasovaSedmicno;
     }
 
-    public void setBrCasovaSedmicno(int brCasovaSedmicno) {
+    public void setBrCasovaSedmicno(Integer brCasovaSedmicno) {
         this.brCasovaSedmicno = brCasovaSedmicno;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
