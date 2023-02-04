@@ -32,7 +32,7 @@ public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements Ne
             NewSubject cat = new NewSubject();
             cat.setId(rs.getInt("id"));
             cat.setNaziv(rs.getString("naziv"));
-            cat.setNazivProfesora(rs.getString("profesor"));
+            cat.setProfesor(rs.getString("profesor"));
             cat.setBrCasovaSemestralno(rs.getInt("brCasovaSemestralno"));
             cat.setBrCasovaSedmicno(rs.getInt("brCasovaSedmicno"));
             return cat;

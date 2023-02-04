@@ -10,8 +10,13 @@ public class DaoFactory {
     private static final NewSubjectsDao newSubjectsDao =  NewSubjectsDaoSQLImpl.getInstance();
     private static final OldSubjectsDao oldSubjectsDao =  OldSubjectsDaoSQLImpl.getInstance();
     private static final UsersDao usersDao = UsersDaoSQLImpl.getInstance();
+    private static final UsersSubjectsDao usersSubjectsDao = UsersSubjectsDaoSQLImpl.getInstance();
 
     private DaoFactory(){
+    }
+
+    public static UsersSubjectsDao usersSubjectsDao(){
+        return usersSubjectsDao;
     }
 
     public static NewSubjectsDao newSubjectsDao(){

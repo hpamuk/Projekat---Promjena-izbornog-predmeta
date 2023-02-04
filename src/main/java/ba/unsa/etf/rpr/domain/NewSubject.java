@@ -29,11 +29,11 @@ public class NewSubject implements Idable{
         this.naziv = naziv;
     }
 
-    public String getNazivProfesora() {
+    public String getProfesor() {
         return profesor;
     }
 
-    public void setNazivProfesora(String nazivProfesora) {
+    public void setProfesor(String nazivProfesora) {
         this.profesor = nazivProfesora;
     }
 
