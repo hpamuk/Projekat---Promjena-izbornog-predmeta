@@ -1,12 +1,17 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.NewSubjectManager;
+import ba.unsa.etf.rpr.domain.NewSubject;
+import ba.unsa.etf.rpr.exceptions.MyException;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -20,6 +25,34 @@ public class MainController {
      * The Label.
      */
     public Label label;
+    public TableView<NewSubject> newSubjectTable;
+    public TableColumn<NewSubject, String> colNaziv;
+    public TableColumn<NewSubject, String>  colNazivProf;
+    public TableColumn<NewSubject, Integer>  colbrCasovaSemestralno;
+    public TableColumn<NewSubject, Integer>  colbrCasovaSedmicno;
+
+    private final NewSubjectManager newSubjectManager = new NewSubjectManager();
+
+    @FXML
+    public void initialize() throws MyException {
+        colNaziv.setCellValueFactory(new PropertyValueFactory<NewSubject, String>("naziv"));
+        colNazivProf.setCellValueFactory(new PropertyValueFactory<NewSubject, String> ("profesor"));
+        colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory<NewSubject, Integer> ("brCasovaSemestralno"));
+        colbrCasovaSedmicno.setCellValueFactory(new PropertyValueFactory<NewSubject, Integer> ("brCasovaSedmicno"));
+        refreshSubjects();
+    }
+
+    private void refreshSubjects(){
+        try {
+            newSubjectTable.setItems(FXCollections.observableList(newSubjectManager.getAll()));
+            newSubjectTable.refresh();
+        } catch (MyException e) {
+            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+        }
+    }
+
+
+
 
     /**
      * Submit click.

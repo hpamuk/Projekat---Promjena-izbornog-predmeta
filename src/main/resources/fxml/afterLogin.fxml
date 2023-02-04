@@ -9,15 +9,15 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="675.4" minWidth="10.0" prefWidth="595.0000366210937" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.39996337890625" minWidth="0.0" prefWidth="94.1999633789062" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="94.00000610351563" minHeight="10.0" prefHeight="50.80000610351563" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="248.39999999999998" minHeight="10.0" prefHeight="219.59999389648436" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="46.80002441406248" minHeight="0.0" prefHeight="21.79997558593749" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="94.00000610351563" minHeight="10.0" prefHeight="73.39998168945313" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="281.20001220703125" minHeight="10.0" prefHeight="259.8000183105469" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="46.80002441406248" minHeight="0.0" prefHeight="18.799963378906227" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <Label fx:id="wellcomeLabel" text="Dobrodošao korisniče">
@@ -30,13 +30,12 @@
             <Insets left="15.0" top="37.0" />
          </GridPane.margin>
       </Label>
-      <TableView fx:id="oldSubjectTable" prefHeight="234.0" prefWidth="385.0" GridPane.rowIndex="1">
+      <TableView fx:id="oldSubjectTable" prefHeight="209.0" prefWidth="523.0" GridPane.rowIndex="1">
         <columns>
-          <TableColumn fx:id="colNaziv" prefWidth="104.7999946475029" text="Naziv predmeta" />
-          <TableColumn fx:id="colNazivProf" minWidth="0.0" prefWidth="112.0" text="Profesor predmeta" />
-            <TableColumn fx:id="colbrCasovaSemestralno" minWidth="7.99993896484375" prefWidth="136.7999725341797" text="Br. časova semestralno" />
-            <TableColumn fx:id="colBrCasovaSedmicno" prefWidth="122.39996337890625" text="Br. časova sedmično" />
-            <TableColumn fx:id="colId" prefWidth="99.2000133395195" text="Id predmeta" />
+          <TableColumn fx:id="colNaziv" prefWidth="160.79999083280563" text="Naziv predmeta" />
+          <TableColumn fx:id="colNazivProf" prefWidth="153.6000213623047" text="Profesor predmeta" />
+            <TableColumn fx:id="colbrCasovaSemestralno" minWidth="7.99993896484375" prefWidth="138.39996337890625" text="Br. časova semestralno" />
+            <TableColumn fx:id="colBrCasovaSedmicno" prefWidth="145.60003662109375" text="Br. časova sedmično" />
         </columns>
          <GridPane.margin>
             <Insets bottom="5.0" left="15.0" right="5.0" top="10.0" />

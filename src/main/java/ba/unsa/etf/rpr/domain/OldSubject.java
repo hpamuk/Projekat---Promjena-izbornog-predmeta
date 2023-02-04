@@ -13,10 +13,10 @@ public class OldSubject implements Idable{
 
     }
 
-    public OldSubject(Integer id, String naziv, String nazivProfesora, Integer brCasovaSemestralno, Integer brCasovaSedmicno) {
+    public OldSubject(Integer id, String naziv, String profesor, Integer brCasovaSemestralno, Integer brCasovaSedmicno) {
         this.id = id;
         this.naziv = naziv;
-        this.profesor = nazivProfesora;
+        this.profesor = profesor;
         this.brCasovaSemestralno = brCasovaSemestralno;
         this.brCasovaSedmicno = brCasovaSedmicno;
     }
@@ -33,8 +33,8 @@ public class OldSubject implements Idable{
         return profesor;
     }
 
-    public void setNazivProfesora(String nazivProfesora) {
-        this.profesor = nazivProfesora;
+    public void setNazivProfesora(String profesor) {
+        this.profesor = profesor;
     }
 
     public int getBrCasovaSemestralno() {
@@ -81,7 +81,7 @@ public class OldSubject implements Idable{
         return "OldSubject{" +
                 "id=" + id +
                 ", naziv='" + naziv + '\'' +
-                ", nazivProfesora='" + profesor + '\'' +
+                ", profesor='" + profesor + '\'' +
                 ", brCasovaSemestralno=" + brCasovaSemestralno +
                 ", brCasovaSedmicno=" + brCasovaSedmicno +
                 '}';

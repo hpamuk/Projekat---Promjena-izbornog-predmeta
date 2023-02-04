@@ -139,15 +139,15 @@
             </DatePicker>
          </children>
       </HBox>
-      <TableView fx:id="tableViewNewSubjects" prefHeight="165.0" prefWidth="469.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
+      <TableView fx:id="newSubjectTable" prefHeight="165.0" prefWidth="536.0" GridPane.columnSpan="4" GridPane.rowIndex="5">
         <columns>
-          <TableColumn fx:id="colNaziv" prefWidth="107.20000684261322" text="Naziv predmeta" />
-          <TableColumn fx:id="colNazivProf" prefWidth="116.80001068115234" text="Profesor predmeta" />
-            <TableColumn fx:id="colbrCasovaSemestralno" minWidth="0.0" prefWidth="142.39996337890625" text="Br. časova semestralno" />
-            <TableColumn fx:id="colbrCasovaSedmicno" prefWidth="125.5999816894531" text="Br. časova sedmično" />
+          <TableColumn fx:id="colNaziv" prefWidth="139.99994122982025" text="Naziv predmeta" />
+          <TableColumn fx:id="colNazivProf" prefWidth="140.80006408691406" text="Profesor predmeta" />
+            <TableColumn fx:id="colbrCasovaSemestralno" minWidth="0.0" prefWidth="149.5999755859375" text="Br. časova semestralno" />
+            <TableColumn fx:id="colbrCasovaSedmicno" prefWidth="150.39993286132812" text="Br. časova sedmično" />
         </columns>
          <GridPane.margin>
-            <Insets left="30.0" />
+            <Insets left="30.0" right="150.0" />
          </GridPane.margin>
       </TableView>
    </children>

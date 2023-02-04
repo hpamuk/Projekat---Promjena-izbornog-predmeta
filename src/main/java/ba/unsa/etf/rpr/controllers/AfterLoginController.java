@@ -22,20 +22,16 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class AfterLoginController {
     public Label wellcomeLabel;
-    public TableView<OldSubject> tableViewOldSubjects;
+    public TableView<OldSubject> oldSubjectTable;
     public TableColumn<OldSubject, String> colNaziv;
     public TableColumn<OldSubject, String>  colNazivProf;
     public TableColumn<OldSubject, Integer>  colbrCasovaSemestralno;
     public TableColumn<OldSubject, Integer>  colBrCasovaSedmicno;
-    public TableColumn<OldSubject, Integer> colId;
 
     private final OldSubjectManager oldSubjectManager = new OldSubjectManager();
 
-  //  public OldSubjectsDao oldSubjectsDao = OldSubjectsDaoSQLImpl.getInstance();
-   // public ObservableList<OldSubject> oldSubjectsList;
     @FXML
     public void initialize() throws MyException {
-        colId.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer>("id"));
         colNaziv.setCellValueFactory(new PropertyValueFactory<OldSubject, String>("naziv"));
         colNazivProf.setCellValueFactory(new PropertyValueFactory<OldSubject, String> ("profesor"));
         colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer> ("brCasovaSemestralno"));
@@ -45,8 +41,8 @@ public class AfterLoginController {
 
     private void refreshSubjects(){
         try {
-            tableViewOldSubjects.setItems(FXCollections.observableList(oldSubjectManager.getAll()));
-            tableViewOldSubjects.refresh();
+            oldSubjectTable.setItems(FXCollections.observableList(oldSubjectManager.getAll()));
+            oldSubjectTable.refresh();
         } catch (MyException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
