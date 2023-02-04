@@ -32,7 +32,7 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
             OldSubject cat = new OldSubject();
             cat.setId(rs.getInt("id"));
             cat.setNaziv(rs.getString("naziv"));
-            cat.setNazivProfesora(rs.getString("profesor"));
+            cat.setProfesor(rs.getString("profesor"));
             cat.setBrCasovaSemestralno(rs.getInt("brCasovaSemestralno"));
             cat.setBrCasovaSedmicno(rs.getInt("brCasovaSedmicno"));
 

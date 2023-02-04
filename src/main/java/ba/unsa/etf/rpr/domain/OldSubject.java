@@ -29,11 +29,11 @@ public class OldSubject implements Idable{
         this.naziv = naziv;
     }
 
-    public String getNazivProfesora() {
+    public String getProfesor() {
         return profesor;
     }
 
-    public void setNazivProfesora(String profesor) {
+    public void setProfesor(String profesor) {
         this.profesor = profesor;
     }
 
