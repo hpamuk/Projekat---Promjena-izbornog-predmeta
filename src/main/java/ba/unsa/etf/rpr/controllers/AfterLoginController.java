@@ -32,6 +32,7 @@ public class AfterLoginController {
 
     @FXML
     public void initialize() throws MyException {
+
         colNaziv.setCellValueFactory(new PropertyValueFactory<OldSubject, String>("naziv"));
         colNazivProf.setCellValueFactory(new PropertyValueFactory<OldSubject, String> ("profesor"));
         colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer> ("brCasovaSemestralno"));
@@ -41,7 +42,7 @@ public class AfterLoginController {
 
     private void refreshSubjects(){
         try {
-            oldSubjectTable.setItems(FXCollections.observableList(oldSubjectManager.getAll()));
+            oldSubjectTable.setItems(FXCollections.observableList(oldSubjectManager.getOdgovarajuce("mmujic1")));
             oldSubjectTable.refresh();
         } catch (MyException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();

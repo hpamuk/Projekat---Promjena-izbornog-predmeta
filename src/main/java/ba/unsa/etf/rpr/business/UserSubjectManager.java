@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.business;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
 
+import ba.unsa.etf.rpr.domain.OldSubject;
 import ba.unsa.etf.rpr.domain.UserSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
@@ -11,4 +12,8 @@ public class UserSubjectManager {
     public List<UserSubject> getAll() throws MyException {
         return DaoFactory.usersSubjectsDao().getAll();
     }
+    public List<UserSubject> getByUsername(String username) throws MyException {
+        return DaoFactory.usersSubjectsDao().getByUsername(username);
+    }
+
 }

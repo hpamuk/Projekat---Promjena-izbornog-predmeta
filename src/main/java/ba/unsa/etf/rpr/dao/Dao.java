@@ -7,7 +7,6 @@ import java.util.List;
  Root interface for all DAO classes
  */
 
-// dodaj dependencies za ovo , mozda sam dodala ???
 
 public interface Dao<T> {
     T getById(int id) throws MyException;
@@ -15,7 +14,6 @@ public interface Dao<T> {
     T update(T item) throws MyException;
     void delete(int id) throws MyException;
     List<T> getAll() throws MyException;
-
 }
 
 

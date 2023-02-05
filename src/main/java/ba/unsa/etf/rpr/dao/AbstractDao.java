@@ -73,6 +73,9 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         return executeQuery("SELECT * FROM "+ tableName, null);
     }
 
+
+
+
     public void delete(int id) throws MyException {
         String sql = "DELETE FROM "+tableName+" WHERE id = ?";
         try{

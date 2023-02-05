@@ -5,13 +5,14 @@ import ba.unsa.etf.rpr.exceptions.MyException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements UsersSubjectsDao {
     private static  UsersSubjectsDaoSQLImpl instance = null;
     private UsersSubjectsDaoSQLImpl() {
-        super("Users");
+        super("Users-Subjects");
     }
 
     public static UsersSubjectsDaoSQLImpl getInstance(){
@@ -45,5 +46,10 @@ public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements
         return row;
     }
 
+
+    public List<UserSubject> getByUsername(String username) throws MyException {
+
+        return executeQuery("SELECT * FROM Users-Subjects WHERE username = ?", new Object[]{username});
+    }
 
 }

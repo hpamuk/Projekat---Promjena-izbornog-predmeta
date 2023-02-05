@@ -1,10 +1,15 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.business.OldSubjectManager;
+import ba.unsa.etf.rpr.business.UserSubjectManager;
 import ba.unsa.etf.rpr.domain.OldSubject;
+import ba.unsa.etf.rpr.domain.UserSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -49,5 +54,22 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
         row.put("naziv", object.getNaziv());
         return row;
     }
+
+
+   /* public List<OldSubject> getOdgovarajuce(String username) throws MyException {
+        UserSubjectManager userSubjectManager = new UserSubjectManager();
+        List<UserSubject> listaOdabranih = userSubjectManager.getByUsername(username);
+        OldSubjectManager oldSubjectManager = new OldSubjectManager();
+        List<OldSubject> svi = oldSubjectManager.getAll();
+        List<OldSubject> zaVracanje = new ArrayList<>();
+        for (UserSubject u : listaOdabranih) {
+            for (OldSubject o : svi) {
+                if(u.getNaziv() == o.getNaziv())
+                    zaVracanje.add(o);
+            }
+        }
+        return zaVracanje;
+    }
+*/
 
 }
