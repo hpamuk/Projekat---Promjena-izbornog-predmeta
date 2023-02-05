@@ -42,6 +42,7 @@ public class AfterLoginController {
 
     private void refreshSubjects(){
         try {
+            // PROBA AKO POSALJEM NEKI USER TJ STRING
             oldSubjectTable.setItems(FXCollections.observableList(oldSubjectManager.getOdgovarajuce("mmujic1")));
             oldSubjectTable.refresh();
         } catch (MyException e) {
