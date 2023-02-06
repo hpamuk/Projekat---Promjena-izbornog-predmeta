@@ -29,6 +29,10 @@ public class AfterLoginController {
     public TableColumn<OldSubject, Integer>  colBrCasovaSedmicno;
 
     private final OldSubjectManager oldSubjectManager = new OldSubjectManager();
+    private String username;
+    public AfterLoginController(String name) {
+        username = name;
+    }
 
     @FXML
     public void initialize() throws MyException {
@@ -43,7 +47,7 @@ public class AfterLoginController {
     private void refreshSubjects(){
         try {
             // PROBA AKO POSALJEM NEKI USER TJ STRING
-            oldSubjectTable.setItems(FXCollections.observableList(oldSubjectManager.getOdgovarajuce("mmujic1")));
+            oldSubjectTable.setItems(FXCollections.observableList(oldSubjectManager.getOdgovarajuce(username)));
             oldSubjectTable.refresh();
         } catch (MyException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
@@ -51,15 +55,30 @@ public class AfterLoginController {
     }
 
 
-    public void changeClick(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
-        MainController mainController = new MainController();
-        loader.setController(mainController);
-        Parent root = loader.load();
-        stage.setTitle("Promjena izbornog predmeta");
-        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        stage.show();
+    public void onActionChange(ActionEvent actionEvent) throws IOException {
+        try {
+            OldSubject predmetZaPromijeniti = oldSubjectTable.getSelectionModel().getSelectedItem();
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+            MainController mainController = new MainController(predmetZaPromijeniti, username);
+            loader.setController(mainController);
+            Parent root = loader.load();
+            stage.setTitle("Promjena izbornog predmeta");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+
+            Stage s = (Stage)wellcomeLabel.getScene().getWindow();
+            s.close();
+
+            stage.show();
+        }catch(Exception e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning Dialog");
+            alert.setHeaderText("Greška pri promjeni predmeta");
+            alert.setContentText("Morate prvo odabrati predmet");
+
+            alert.showAndWait();
+        }
+
     }
 
 

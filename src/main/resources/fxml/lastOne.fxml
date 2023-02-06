@@ -7,17 +7,16 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
-      <Button fx:id="okClick" mnemonicParsing="false" onAction="#okClick" prefHeight="19.0" prefWidth="52.0" text="Uredu" BorderPane.alignment="CENTER">
+      <Button fx:id="btnUredu" mnemonicParsing="false" onAction="#onActionUredu" prefHeight="19.0" prefWidth="52.0" text="Uredu" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="7.0" top="7.0" />
          </BorderPane.margin>
       </Button>
    </bottom>
    <center>
-      <ListView prefHeight="200.0" prefWidth="490.0" BorderPane.alignment="CENTER">
+      <ListView fx:id="lvNoviPredmeti" prefHeight="200.0" prefWidth="490.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets left="10.0" />
          </BorderPane.margin>

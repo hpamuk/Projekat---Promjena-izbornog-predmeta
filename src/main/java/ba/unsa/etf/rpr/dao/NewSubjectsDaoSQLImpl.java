@@ -46,6 +46,9 @@ public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements Ne
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
         row.put("naziv", object.getNaziv());
+        row.put("profesor", object.getProfesor());
+        row.put("brCasovaSemestralno", object.getBrCasovaSemestralno());
+        row.put("brCasovaSedmicno", object.getBrCasovaSedmicno());
         return row;
     }
 }

@@ -78,12 +78,6 @@ public class OldSubject implements Idable{
 
     @Override
     public String toString() {
-        return "OldSubject{" +
-                "id=" + id +
-                ", naziv='" + naziv + '\'' +
-                ", profesor='" + profesor + '\'' +
-                ", brCasovaSemestralno=" + brCasovaSemestralno +
-                ", brCasovaSedmicno=" + brCasovaSedmicno +
-                '}';
+        return naziv;
     }
 }

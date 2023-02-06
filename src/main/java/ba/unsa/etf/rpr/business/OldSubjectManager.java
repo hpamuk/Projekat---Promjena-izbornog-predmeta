@@ -31,7 +31,7 @@ public class OldSubjectManager {
         List<OldSubject> zaVracanje = new ArrayList<>();
         for (UserSubject u : listaOdabranih) {
             for (OldSubject o : svi) {
-                if(u.getNaziv() == o.getNaziv())
+                if(u.getNaziv().equals(o.getNaziv()))
                     zaVracanje.add(o);
             }
         }

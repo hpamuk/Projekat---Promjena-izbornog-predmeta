@@ -57,4 +57,9 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
     }
 
 
+    @Override
+    public boolean searchByNameAndPassword() {
+        String query = "SELECT * FROM Users WHERE username = ? AND brIndeksa = ?";
+        return false;
+    }
 }

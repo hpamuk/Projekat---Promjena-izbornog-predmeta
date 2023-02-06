@@ -6,6 +6,7 @@ import ba.unsa.etf.rpr.domain.OldSubject;
 import ba.unsa.etf.rpr.domain.UserSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -52,8 +53,31 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
         row.put("naziv", object.getNaziv());
+        row.put("profesor", object.getProfesor());
+        row.put("brCasovaSemestralno", object.getBrCasovaSemestralno());
+        row.put("brCasovaSedmicno", object.getBrCasovaSedmicno());
         return row;
     }
+
+    @Override
+    public OldSubject addOldSubject(OldSubject oldSubject) {
+        String query = "INSERT INTO OldSubjects (id,naziv,profesor,brCasovaSemestralno,brCasovaSedmicno) VALUES (?,?,?,?,?)";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, oldSubject.getId());
+            preparedStatement.setString(2, oldSubject.getNaziv());
+            preparedStatement.setString(3, oldSubject.getProfesor());
+            preparedStatement.setInt(4, oldSubject.getBrCasovaSemestralno());
+            preparedStatement.setInt(5, oldSubject.getBrCasovaSedmicno());
+            preparedStatement.executeUpdate();
+            return oldSubject;
+        } catch (SQLException e) {
+            System.out.println("Neki problem u radu sa novom funkcijom dodavanja starih predmeta!");
+        }
+        return null;
+    }
+
+
 
 
    /* public List<OldSubject> getOdgovarajuce(String username) throws MyException {

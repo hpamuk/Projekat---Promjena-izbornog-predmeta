@@ -3,8 +3,10 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.UserSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -12,7 +14,7 @@ import java.util.TreeMap;
 public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements UsersSubjectsDao {
     private static  UsersSubjectsDaoSQLImpl instance = null;
     private UsersSubjectsDaoSQLImpl() {
-        super("Users-Subjects");
+        super("users_subjects");
     }
 
     public static UsersSubjectsDaoSQLImpl getInstance(){
@@ -49,7 +51,38 @@ public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements
 
     public List<UserSubject> getByUsername(String username) throws MyException {
 
-        return executeQuery("SELECT * FROM Users-Subjects WHERE username = ?", new Object[]{username});
+        return executeQuery("SELECT * FROM users_subjects WHERE username = ?", new Object[]{username});
     }
+
+    @Override
+    public void deleteByName(String username, String subject) {
+        String query = "DELETE FROM users_subjects WHERE username = ? AND naziv = ?";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(query);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, subject);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Neki problem kod brisanja usera");
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void addNewUserSubject(String username, String subject) {
+        String query = "INSERT INTO users_subjects(username, naziv, nazivNovog) VALUES(?,?,?)";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1,username);
+            stmt.setString(2, subject);
+            stmt.setString(3, null);
+            stmt.executeUpdate();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 }

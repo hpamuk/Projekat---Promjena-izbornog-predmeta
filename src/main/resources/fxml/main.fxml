@@ -44,7 +44,7 @@
       </Label>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
          <children>
-            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#submitClick" prefHeight="26.0" prefWidth="176.0" text="Podnesi">
+            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#onActionPodnesi" prefHeight="26.0" prefWidth="176.0" text="Podnesi">
                <HBox.margin>
                   <Insets top="50.0" />
                </HBox.margin>

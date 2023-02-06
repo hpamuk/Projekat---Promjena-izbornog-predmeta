@@ -1,7 +1,10 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.NewSubjectManager;
+import ba.unsa.etf.rpr.business.OldSubjectManager;
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.NewSubject;
+import ba.unsa.etf.rpr.domain.OldSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -32,6 +35,12 @@ public class MainController {
     public TableColumn<NewSubject, Integer>  colbrCasovaSedmicno;
 
     private final NewSubjectManager newSubjectManager = new NewSubjectManager();
+    private OldSubject oldSubject = null;
+    private String username;
+    public MainController(OldSubject oldSubject, String username) {
+        this.oldSubject = oldSubject;
+        this.username = username;
+    }
 
     @FXML
     public void initialize() throws MyException {
@@ -60,15 +69,43 @@ public class MainController {
      * @param actionEvent the action event
      * @throws IOException the io exception
      */
-    public void submitClick(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/lastOne.fxml"));
-        LastController lastController = new LastController(); // ovo
-        loader.setController(lastController);
-        Parent root = loader.load();
-        stage.setTitle("Vaši novi izborni predmeti!");
-        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        stage.show();
+    public void onActionPodnesi(ActionEvent actionEvent) throws IOException {
+        try {
+            NewSubject noviPredmetZaDodati = newSubjectTable.getSelectionModel().getSelectedItem();
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/lastOne.fxml"));
+//            DaoFactory.oldSubjectsDao().delete(oldSubject.getId());
+            OldSubject noviZaUbaciti = new OldSubject();
+            noviZaUbaciti.setId(noviPredmetZaDodati.getId());
+            noviZaUbaciti.setProfesor(noviPredmetZaDodati.getProfesor());
+            noviZaUbaciti.setBrCasovaSedmicno(noviPredmetZaDodati.getBrCasovaSedmicno());
+            noviZaUbaciti.setNaziv(noviPredmetZaDodati.getNaziv());
+            noviZaUbaciti.setBrCasovaSemestralno(noviPredmetZaDodati.getBrCasovaSemestralno());
+            DaoFactory.oldSubjectsDao().addOldSubject(noviZaUbaciti);
+            DaoFactory.usersSubjectsDao().deleteByName(username, oldSubject.getNaziv());
+            DaoFactory.usersSubjectsDao().addNewUserSubject(username, noviZaUbaciti.getNaziv());
+            LastController lastController = new LastController(username);
+//            NewSubject predmetZaIzbaciti = new NewSubject();
+//            predmetZaIzbaciti.setProfesor(oldSubject.getProfesor());
+//            predmetZaIzbaciti.setBrCasovaSedmicno(oldSubject.getBrCasovaSedmicno());
+//            predmetZaIzbaciti.setNaziv(oldSubject.getNaziv());
+//            predmetZaIzbaciti.setBrCasovaSemestralno(oldSubject.getBrCasovaSemestralno());
+//            DaoFactory.newSubjectsDao().add(predmetZaIzbaciti);
+            // ovo
+            loader.setController(lastController);
+            Parent root = loader.load();
+            stage.setTitle("Vaši novi izborni predmeti!");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.show();
+        }catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning Dialog");
+            alert.setHeaderText("Greška pri promjeni predmeta");
+            alert.setContentText("Morate prvo odabrati predmet");
+
+            alert.showAndWait();
+        }
+
     }
 
     /**

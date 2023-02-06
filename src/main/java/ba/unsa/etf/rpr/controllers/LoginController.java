@@ -69,7 +69,7 @@ public class LoginController {
 
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/afterLogin.fxml"));
-        AfterLoginController afterLoginController = new AfterLoginController(); // ovo
+        AfterLoginController afterLoginController = new AfterLoginController(usernameField.getText()); // ovo
         loader.setController(afterLoginController);
         Parent root = loader.load();
         afterLoginController.wellcomeLabel.setText(afterLoginController.wellcomeLabel.getText() + " " + usernameField.getText() + "!");
