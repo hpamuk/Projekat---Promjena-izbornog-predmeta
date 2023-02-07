@@ -6,6 +6,7 @@ import ba.unsa.etf.rpr.business.UserSubjectManager;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.NewSubject;
 import ba.unsa.etf.rpr.domain.OldSubject;
+import ba.unsa.etf.rpr.domain.UserSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.List;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -64,6 +66,23 @@ public class MainController {
             NewSubject noviPredmetZaDodati = newSubjectTable.getSelectionModel().getSelectedItem();
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/lastOne.fxml"));
+
+
+            // da li da ide u neki manager ??????
+            List<UserSubject> predmetiUsera = userSubjectManager.getAll();
+            for (UserSubject u : predmetiUsera) {
+                if(u.getUsername().equals(username) && u.getNaziv().equals(noviPredmetZaDodati.getNaziv())) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Warning Dialog");
+                    alert.setHeaderText("Greška pri promjeni predmeta");
+                    alert.setContentText("Odabrani predmet vec pohađate i ne možete ga opet odabrati!");
+                    alert.showAndWait();
+                    return;
+                }
+            }
+
+
+
             OldSubject noviZaUbaciti = new OldSubject();
             noviZaUbaciti.setId(noviPredmetZaDodati.getId());
             noviZaUbaciti.setProfesor(noviPredmetZaDodati.getProfesor());
