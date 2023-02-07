@@ -3,6 +3,9 @@ package ba.unsa.etf.rpr.controllers;
 //i dodaj potrebne importe
 
 
+import ba.unsa.etf.rpr.business.OldSubjectManager;
+import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.exceptions.MyException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,14 +34,9 @@ public class LoginController {
      * The Password field.
      */
     public PasswordField passwordField;
+    private final UserManager userManager = new UserManager();
 
-    /**
-     * Login click.
-     *
-     * @param actionEvent the action event
-     * @throws IOException the io exception
-     */
-    public void loginClick(ActionEvent actionEvent) throws IOException {
+    public void loginClick(ActionEvent actionEvent) throws IOException, MyException {
         if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prazno jedno od polja!");
@@ -47,22 +45,15 @@ public class LoginController {
             alert.showAndWait();
             return;
         }
-        if(!((usernameField.getText().equals("mmujic1") && passwordField.getText().equals("123456")) ||
+       /* if(!((usernameField.getText().equals("mmujic1") && passwordField.getText().equals("123456")) ||
                 (usernameField.getText().equals("mmehic1") && passwordField.getText().equals("654321")) ||
                 (usernameField.getText().equals("ffatic1") && passwordField.getText().equals("123123")) ||
-                (usernameField.getText().equals("sselmic1") && passwordField.getText().equals("321321")))) {
+                (usernameField.getText().equals("sselmic1") && passwordField.getText().equals("321321")))) */
+        if(!userManager.searchByName(usernameField.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Zabrana pristupa!");
             alert.setHeaderText("Ne možete pristupiti sistemu!");
             alert.setContentText("Niste korisnik sistema, ili ste pogriješili Vaš username ili password.");
-            alert.showAndWait();
-            return;
-        }
-        else if(passwordField.getText().length() < 6) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Pogrešno unesen password!");
-            alert.setHeaderText("Prekratak password!");
-            alert.setContentText("Vaš password mora imati 6 karaktera.");
             alert.showAndWait();
             return;
         }
@@ -75,6 +66,10 @@ public class LoginController {
         afterLoginController.wellcomeLabel.setText(afterLoginController.wellcomeLabel.getText() + " " + usernameField.getText() + "!");
         stage.setTitle("Prikaz izbornih predmeta");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+
+        Stage s = (Stage)usernameField.getScene().getWindow();
+        s.close();
+
         stage.show();
     }
 

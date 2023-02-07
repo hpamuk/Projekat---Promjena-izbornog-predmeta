@@ -5,36 +5,29 @@ import ba.unsa.etf.rpr.exceptions.MyException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
-    private static  UsersDaoSQLImpl instance = null;
+public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao {
+    private static UsersDaoSQLImpl instance = null;
+
     private UsersDaoSQLImpl() {
         super("Users");
     }
 
-    public static UsersDaoSQLImpl getInstance(){
-        if(instance==null)
+    public static UsersDaoSQLImpl getInstance() {
+        if (instance == null)
             instance = new UsersDaoSQLImpl();
         return instance;
     }
 
-    public static void removeInstance(){
-        if(instance!=null)
-            instance=null;
+    public static void removeInstance() {
+        if (instance != null)
+            instance = null;
     }
 
- /*   @Override
-    public User add(User item) throws MyException {
-        return null;
-    }
 
-    @Override
-    public User update(User item) throws MyException {
-        return null;
-    }
-*/
     @Override
     public User row2object(ResultSet rs) throws MyException {
         try {
@@ -58,8 +51,14 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao{
 
 
     @Override
-    public boolean searchByNameAndPassword() {
-        String query = "SELECT * FROM Users WHERE username = ? AND brIndeksa = ?";
+    public boolean searchByName(String username) throws MyException {
+        //  String query = "SELECT * FROM Users WHERE username = ? AND brIndeksa = ?";
+        List<User> svi = this.getAll();
+        for (User u : svi) {
+            if(u.getImeIPrezime().equals(username))
+                return true;
+        }
         return false;
     }
+
 }

@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.business;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.domain.NewSubject;
 import ba.unsa.etf.rpr.domain.OldSubject;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.domain.UserSubject;
@@ -37,4 +38,11 @@ public class OldSubjectManager {
         }
         return zaVracanje;
     }
+
+
+    public void add(OldSubject o) {
+        DaoFactory.oldSubjectsDao().addOldSubject(o);
+    }
+
+
 }

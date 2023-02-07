@@ -19,4 +19,9 @@ public class UserManager {
     public void update(User q) throws MyException{
         DaoFactory.usersDao().update(q);
     }
+
+    public boolean searchByName(String username) throws MyException {
+        return DaoFactory.usersDao().searchByName(username);
+    }
+
 }

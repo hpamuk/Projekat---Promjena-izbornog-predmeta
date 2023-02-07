@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.NewSubjectManager;
 import ba.unsa.etf.rpr.business.OldSubjectManager;
+import ba.unsa.etf.rpr.business.UserSubjectManager;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.NewSubject;
 import ba.unsa.etf.rpr.domain.OldSubject;
@@ -33,8 +34,9 @@ public class MainController {
     public TableColumn<NewSubject, String>  colNazivProf;
     public TableColumn<NewSubject, Integer>  colbrCasovaSemestralno;
     public TableColumn<NewSubject, Integer>  colbrCasovaSedmicno;
-
+    private final OldSubjectManager oldSubjectManager = new OldSubjectManager();
     private final NewSubjectManager newSubjectManager = new NewSubjectManager();
+    private final UserSubjectManager userSubjectManager = new UserSubjectManager();
     private OldSubject oldSubject = null;
     private String username;
     public MainController(OldSubject oldSubject, String username) {
@@ -61,41 +63,29 @@ public class MainController {
     }
 
 
-
-
-    /**
-     * Submit click.
-     *
-     * @param actionEvent the action event
-     * @throws IOException the io exception
-     */
     public void onActionPodnesi(ActionEvent actionEvent) throws IOException {
         try {
             NewSubject noviPredmetZaDodati = newSubjectTable.getSelectionModel().getSelectedItem();
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/lastOne.fxml"));
-//            DaoFactory.oldSubjectsDao().delete(oldSubject.getId());
             OldSubject noviZaUbaciti = new OldSubject();
             noviZaUbaciti.setId(noviPredmetZaDodati.getId());
             noviZaUbaciti.setProfesor(noviPredmetZaDodati.getProfesor());
             noviZaUbaciti.setBrCasovaSedmicno(noviPredmetZaDodati.getBrCasovaSedmicno());
             noviZaUbaciti.setNaziv(noviPredmetZaDodati.getNaziv());
             noviZaUbaciti.setBrCasovaSemestralno(noviPredmetZaDodati.getBrCasovaSemestralno());
-            DaoFactory.oldSubjectsDao().addOldSubject(noviZaUbaciti);
-            DaoFactory.usersSubjectsDao().deleteByName(username, oldSubject.getNaziv());
-            DaoFactory.usersSubjectsDao().addNewUserSubject(username, noviZaUbaciti.getNaziv());
+            oldSubjectManager.add(noviZaUbaciti);
+            userSubjectManager.deleteByName(username, oldSubject.getNaziv());
+            userSubjectManager.addNewUserSubject(username, noviZaUbaciti.getNaziv());
             LastController lastController = new LastController(username);
-//            NewSubject predmetZaIzbaciti = new NewSubject();
-//            predmetZaIzbaciti.setProfesor(oldSubject.getProfesor());
-//            predmetZaIzbaciti.setBrCasovaSedmicno(oldSubject.getBrCasovaSedmicno());
-//            predmetZaIzbaciti.setNaziv(oldSubject.getNaziv());
-//            predmetZaIzbaciti.setBrCasovaSemestralno(oldSubject.getBrCasovaSemestralno());
-//            DaoFactory.newSubjectsDao().add(predmetZaIzbaciti);
-            // ovo
             loader.setController(lastController);
             Parent root = loader.load();
             stage.setTitle("Vaši novi izborni predmeti!");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+
+            Stage s = (Stage)label.getScene().getWindow();
+            s.close();
+
             stage.show();
         }catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);

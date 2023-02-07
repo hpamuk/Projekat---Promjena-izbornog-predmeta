@@ -71,12 +71,12 @@ public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements
 
     @Override
     public void addNewUserSubject(String username, String subject) {
-        String query = "INSERT INTO users_subjects(username, naziv, nazivNovog) VALUES(?,?,?)";
+        String query = "INSERT INTO users_subjects(username, naziv) VALUES(?,?)";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1,username);
             stmt.setString(2, subject);
-            stmt.setString(3, null);
+
             stmt.executeUpdate();
         }catch (SQLException e) {
             e.printStackTrace();
