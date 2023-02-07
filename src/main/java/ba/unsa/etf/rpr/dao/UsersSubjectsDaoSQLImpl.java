@@ -13,6 +13,7 @@ import java.util.TreeMap;
 
 public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements UsersSubjectsDao {
     private static  UsersSubjectsDaoSQLImpl instance = null;
+
     private UsersSubjectsDaoSQLImpl() {
         super("users_subjects");
     }
@@ -48,9 +49,7 @@ public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements
         return row;
     }
 
-
     public List<UserSubject> getByUsername(String username) throws MyException {
-
         return executeQuery("SELECT * FROM users_subjects WHERE username = ?", new Object[]{username});
     }
 
@@ -66,7 +65,6 @@ public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements
             System.out.println("Neki problem kod brisanja usera");
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -76,13 +74,10 @@ public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements
             PreparedStatement stmt = getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1,username);
             stmt.setString(2, subject);
-
             stmt.executeUpdate();
         }catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
-
 
 }

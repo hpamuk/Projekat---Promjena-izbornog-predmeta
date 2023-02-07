@@ -21,13 +21,8 @@ import java.io.IOException;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
-/**
- * The type Main controller.
- */
 public class MainController {
-    /**
-     * The Label.
-     */
+
     public Label label;
     public TableView<NewSubject> newSubjectTable;
     public TableColumn<NewSubject, String> colNaziv;
@@ -39,6 +34,7 @@ public class MainController {
     private final UserSubjectManager userSubjectManager = new UserSubjectManager();
     private OldSubject oldSubject = null;
     private String username;
+
     public MainController(OldSubject oldSubject, String username) {
         this.oldSubject = oldSubject;
         this.username = username;
@@ -74,9 +70,7 @@ public class MainController {
             noviZaUbaciti.setBrCasovaSedmicno(noviPredmetZaDodati.getBrCasovaSedmicno());
             noviZaUbaciti.setNaziv(noviPredmetZaDodati.getNaziv());
             noviZaUbaciti.setBrCasovaSemestralno(noviPredmetZaDodati.getBrCasovaSemestralno());
-
             oldSubjectManager.add(noviZaUbaciti);
-            // OVDJEEEEEEEEEE
             userSubjectManager.deleteByName(username, oldSubject.getNaziv());
             userSubjectManager.addNewUserSubject(username, noviZaUbaciti.getNaziv());
             LastController lastController = new LastController(username);
@@ -84,27 +78,19 @@ public class MainController {
             Parent root = loader.load();
             stage.setTitle("Vaši novi izborni predmeti!");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-
+            stage.setResizable(false);
             Stage s = (Stage)label.getScene().getWindow();
             s.close();
-
             stage.show();
         }catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("Greška pri promjeni predmeta");
             alert.setContentText("Morate prvo odabrati predmet");
-
             alert.showAndWait();
         }
-
     }
 
-    /**
-     * Cancel click.
-     *
-     * @param actionEvent the action event
-     */
     public void cancelClick(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Stage stage = (Stage) n.getScene().getWindow();

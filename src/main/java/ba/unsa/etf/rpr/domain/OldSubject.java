@@ -10,7 +10,6 @@ public class OldSubject implements Idable{
     private Integer brCasovaSedmicno;
 
     public OldSubject() {
-
     }
 
     public OldSubject(Integer id, String naziv, String profesor, Integer brCasovaSemestralno, Integer brCasovaSedmicno) {
@@ -80,4 +79,5 @@ public class OldSubject implements Idable{
     public String toString() {
         return naziv;
     }
+
 }

@@ -10,7 +10,6 @@ public class NewSubject implements Idable{
     private Integer brCasovaSedmicno;
 
     public NewSubject() {
-
     }
 
     public NewSubject(Integer id, String naziv, String nazivProfesora, Integer brCasovaSemestralno, Integer brCasovaSedmicno) {
@@ -87,4 +86,5 @@ public class NewSubject implements Idable{
                 ", brCasovaSedmicno=" + brCasovaSedmicno +
                 '}';
     }
+
 }

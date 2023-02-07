@@ -1,10 +1,12 @@
 package ba.unsa.etf.rpr.domain;
 
 public class UserSubject implements Idable{
+    private Integer id;
     private String naziv;
     private String username;
 
-    public UserSubject() { }
+    public UserSubject() {
+    }
 
     public UserSubject(String naziv, String username) {
         this.naziv = naziv;
@@ -27,15 +29,14 @@ public class UserSubject implements Idable{
         this.username = username;
     }
 
-    // sta cu s ovim jer nemam id-a
     @Override
     public void setId(Integer id) {
-
+        this.id = id;
     }
 
     @Override
     public int getId() {
-        return 0;
+        return id;
     }
 
 }

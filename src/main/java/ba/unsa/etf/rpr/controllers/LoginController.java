@@ -22,17 +22,8 @@ import java.io.IOException;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
-/**
- * The type Login controller.
- */
 public class LoginController {
-    /**
-     * The Username field.
-     */
     public TextField usernameField;
-    /**
-     * The Password field.
-     */
     public PasswordField passwordField;
     private final UserManager userManager = new UserManager();
 
@@ -53,7 +44,6 @@ public class LoginController {
             alert.showAndWait();
             return;
         }
-
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/afterLogin.fxml"));
         AfterLoginController afterLoginController = new AfterLoginController(usernameField.getText()); // ovo
@@ -62,22 +52,15 @@ public class LoginController {
         afterLoginController.wellcomeLabel.setText(afterLoginController.wellcomeLabel.getText() + " " + usernameField.getText() + "!");
         stage.setTitle("Prikaz izbornih predmeta");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-
+        stage.setResizable(false);
         Stage s = (Stage)usernameField.getScene().getWindow();
         s.close();
-
         stage.show();
     }
 
-    /**
-     * Cancel click.
-     *
-     * @param actionEvent the action event
-     */
     public void cancelClick(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Stage stage = (Stage) n.getScene().getWindow();
         stage.close();
-
     }
 }

@@ -27,7 +27,6 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao {
             instance = null;
     }
 
-
     @Override
     public User row2object(ResultSet rs) throws MyException {
         try {
@@ -48,7 +47,6 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao {
         row.put("username", object.getImeIPrezime());
         return row;
     }
-
 
     @Override
     public boolean searchByName(String username, String password) throws MyException {

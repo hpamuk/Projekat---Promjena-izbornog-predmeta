@@ -6,7 +6,9 @@ import ba.unsa.etf.rpr.exceptions.MyException;
 import java.util.List;
 
 public interface UsersSubjectsDao extends Dao<UserSubject>{
-    List<UserSubject> getByUsername(String username) throws MyException;
+
+    public List<UserSubject> getByUsername(String username) throws MyException;
     public void deleteByName(String username, String subject);
     public void addNewUserSubject(String username, String subject);
+
 }

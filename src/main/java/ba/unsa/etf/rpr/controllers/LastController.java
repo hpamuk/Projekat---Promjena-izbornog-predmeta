@@ -19,10 +19,11 @@ public class LastController {
     private OldSubjectManager oldSubjectManager;
     public ListView<OldSubject> lvNoviPredmeti;
     private ObservableList<OldSubject> predmetiZaListu;
+
     public LastController(NewSubject noviPredmet) {
         this.noviPredmet = noviPredmet;
-
     }
+
     public LastController(String username) {
         try {
             oldSubjectManager = new OldSubjectManager();
@@ -31,8 +32,8 @@ public class LastController {
         }catch (MyException e) {
             e.printStackTrace();
         }
-
     }
+
     @FXML
     public void initialize() {
         lvNoviPredmeti.setItems(predmetiZaListu);

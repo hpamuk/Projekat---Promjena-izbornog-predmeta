@@ -27,16 +27,15 @@ public class AfterLoginController {
     public TableColumn<OldSubject, String>  colNazivProf;
     public TableColumn<OldSubject, Integer>  colbrCasovaSemestralno;
     public TableColumn<OldSubject, Integer>  colBrCasovaSedmicno;
-
     private final OldSubjectManager oldSubjectManager = new OldSubjectManager();
     private String username;
+
     public AfterLoginController(String name) {
         username = name;
     }
 
     @FXML
     public void initialize() throws MyException {
-
         colNaziv.setCellValueFactory(new PropertyValueFactory<OldSubject, String>("naziv"));
         colNazivProf.setCellValueFactory(new PropertyValueFactory<OldSubject, String> ("profesor"));
         colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory<OldSubject, Integer> ("brCasovaSemestralno"));
@@ -46,14 +45,12 @@ public class AfterLoginController {
 
     private void refreshSubjects(){
         try {
-            // PROBA AKO POSALJEM NEKI USER TJ STRING
             oldSubjectTable.setItems(FXCollections.observableList(oldSubjectManager.getOdgovarajuce(username)));
             oldSubjectTable.refresh();
         } catch (MyException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
     }
-
 
     public void onActionChange(ActionEvent actionEvent) throws IOException {
         try {
@@ -65,21 +62,17 @@ public class AfterLoginController {
             Parent root = loader.load();
             stage.setTitle("Promjena izbornog predmeta");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-
+            stage.setResizable(false);
             Stage s = (Stage)wellcomeLabel.getScene().getWindow();
             s.close();
-
             stage.show();
         }catch(Exception e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("Greška pri promjeni predmeta");
             alert.setContentText("Morate prvo odabrati predmet");
-
             alert.showAndWait();
         }
-
     }
-
 
 }

@@ -17,6 +17,7 @@ import java.util.TreeMap;
 
 public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements OldSubjectsDao {
     private static  OldSubjectsDaoSQLImpl instance = null;
+
     private OldSubjectsDaoSQLImpl() {
         super("OldSubjects");
     }
@@ -41,7 +42,6 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
             cat.setProfesor(rs.getString("profesor"));
             cat.setBrCasovaSemestralno(rs.getInt("brCasovaSemestralno"));
             cat.setBrCasovaSedmicno(rs.getInt("brCasovaSedmicno"));
-
             return cat;
         } catch (SQLException e) {
             throw new MyException(e.getMessage(), e);
@@ -94,24 +94,5 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
         }
         return zaVracanje;
     }
-
-
-
-
-   /* public List<OldSubject> getOdgovarajuce(String username) throws MyException {
-        UserSubjectManager userSubjectManager = new UserSubjectManager();
-        List<UserSubject> listaOdabranih = userSubjectManager.getByUsername(username);
-        OldSubjectManager oldSubjectManager = new OldSubjectManager();
-        List<OldSubject> svi = oldSubjectManager.getAll();
-        List<OldSubject> zaVracanje = new ArrayList<>();
-        for (UserSubject u : listaOdabranih) {
-            for (OldSubject o : svi) {
-                if(u.getNaziv() == o.getNaziv())
-                    zaVracanje.add(o);
-            }
-        }
-        return zaVracanje;
-    }
-*/
 
 }

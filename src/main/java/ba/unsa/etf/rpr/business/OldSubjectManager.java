@@ -28,10 +28,8 @@ public class OldSubjectManager {
         return DaoFactory.oldSubjectsDao().getOdgovarajuce(username);
     }
 
-
     public void add(OldSubject o) {
         DaoFactory.oldSubjectsDao().addOldSubject(o);
     }
-
 
 }

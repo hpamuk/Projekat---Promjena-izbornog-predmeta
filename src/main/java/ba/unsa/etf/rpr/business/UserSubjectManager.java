@@ -9,6 +9,7 @@ import ba.unsa.etf.rpr.exceptions.MyException;
 import java.util.List;
 
 public class UserSubjectManager {
+
     public List<UserSubject> getAll() throws MyException {
         return DaoFactory.usersSubjectsDao().getAll();
     }
