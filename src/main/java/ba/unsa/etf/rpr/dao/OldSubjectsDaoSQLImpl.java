@@ -59,8 +59,8 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
         return row;
     }
 
-    @Override
-    public OldSubject addOldSubject(OldSubject oldSubject) {
+   @Override
+   public OldSubject addOldSubject(OldSubject oldSubject) {
         String query = "INSERT INTO OldSubjects (id,naziv,profesor,brCasovaSemestralno,brCasovaSedmicno) VALUES (?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(query);
