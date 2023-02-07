@@ -66,23 +66,14 @@ public class MainController {
             NewSubject noviPredmetZaDodati = newSubjectTable.getSelectionModel().getSelectedItem();
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/lastOne.fxml"));
-
-
-            // da li da ide u neki manager ??????
-            List<UserSubject> predmetiUsera = userSubjectManager.getAll();
-            for (UserSubject u : predmetiUsera) {
-                if(u.getUsername().equals(username) && u.getNaziv().equals(noviPredmetZaDodati.getNaziv())) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Warning Dialog");
-                    alert.setHeaderText("Greška pri promjeni predmeta");
-                    alert.setContentText("Odabrani predmet vec pohađate i ne možete ga opet odabrati!");
-                    alert.showAndWait();
-                    return;
-                }
+            if(userSubjectManager.searchByUsernameAndSubject(username,noviPredmetZaDodati.getNaziv())) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning Dialog");
+                alert.setHeaderText("Greška pri promjeni predmeta");
+                alert.setContentText("Odabrani predmet vec pohađate i ne možete ga opet odabrati!");
+                alert.showAndWait();
+                return;
             }
-
-
-
             OldSubject noviZaUbaciti = new OldSubject();
             noviZaUbaciti.setId(noviPredmetZaDodati.getId());
             noviZaUbaciti.setProfesor(noviPredmetZaDodati.getProfesor());

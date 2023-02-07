@@ -10,5 +10,5 @@ public interface UsersSubjectsDao extends Dao<UserSubject>{
     public List<UserSubject> getByUsername(String username) throws MyException;
     public void deleteByName(String username, String subject);
     public void addNewUserSubject(String username, String subject);
-
+    public boolean searchByUsernameAndSubject(String username, String subject) throws MyException;
 }

@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.UserSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
+import javafx.scene.control.Alert;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -78,6 +79,17 @@ public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements
         }catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean searchByUsernameAndSubject(String username, String subject) throws MyException {
+        List<UserSubject> predmetiUsera = this.getAll();
+        for (UserSubject u : predmetiUsera) {
+            if(u.getUsername().equals(username) && u.getNaziv().equals(subject)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.business;
 
+import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 
 import ba.unsa.etf.rpr.domain.OldSubject;
@@ -21,6 +22,9 @@ public class UserSubjectManager {
     }
     public void addNewUserSubject(String username, String naziv) {
         DaoFactory.usersSubjectsDao().addNewUserSubject(username, naziv);
+    }
+    public boolean searchByUsernameAndSubject(String username, String subject) throws MyException {
+        return DaoFactory.usersSubjectsDao().searchByUsernameAndSubject(username, subject);
     }
 
 }
