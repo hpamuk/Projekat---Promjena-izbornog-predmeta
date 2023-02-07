@@ -24,19 +24,8 @@ public class OldSubjectManager {
         DaoFactory.oldSubjectsDao().update(q);
     }
 
-    // OVDJE SAM PRAVILA TO DA SE PRIKAZU PREDMETI OD LOGOVANOG USERA
     public List<OldSubject> getOdgovarajuce(String username) throws MyException {
-        UserSubjectManager userSubjectManager = new UserSubjectManager();
-        List<UserSubject> listaOdabranih = userSubjectManager.getByUsername(username);
-        List<OldSubject> svi = this.getAll();
-        List<OldSubject> zaVracanje = new ArrayList<>();
-        for (UserSubject u : listaOdabranih) {
-            for (OldSubject o : svi) {
-                if(u.getNaziv().equals(o.getNaziv()))
-                    zaVracanje.add(o);
-            }
-        }
-        return zaVracanje;
+        return DaoFactory.oldSubjectsDao().getOdgovarajuce(username);
     }
 
 

@@ -20,8 +20,8 @@ public class UserManager {
         DaoFactory.usersDao().update(q);
     }
 
-    public boolean searchByName(String username) throws MyException {
-        return DaoFactory.usersDao().searchByName(username);
+    public boolean searchByName(String username, String password) throws MyException {
+        return DaoFactory.usersDao().searchByName(username,password);
     }
 
 }

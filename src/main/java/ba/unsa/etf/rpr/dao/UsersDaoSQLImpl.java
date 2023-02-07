@@ -34,7 +34,7 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao {
             User cat = new User();
             cat.setId(rs.getInt("id"));
             cat.setImeIPrezime(rs.getString("username"));
-            cat.setBrIndeksa(rs.getInt("brIndeksa"));
+            cat.setBrIndeksa(rs.getString("brIndeksa"));
             return cat;
         } catch (SQLException e) {
             throw new MyException(e.getMessage(), e);
@@ -51,11 +51,11 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao {
 
 
     @Override
-    public boolean searchByName(String username) throws MyException {
+    public boolean searchByName(String username, String password) throws MyException {
         //  String query = "SELECT * FROM Users WHERE username = ? AND brIndeksa = ?";
         List<User> svi = this.getAll();
         for (User u : svi) {
-            if(u.getImeIPrezime().equals(username))
+            if(u.getImeIPrezime().equals(username) && u.getBrIndeksa().equals(password))
                 return true;
         }
         return false;

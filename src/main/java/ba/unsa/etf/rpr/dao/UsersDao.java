@@ -7,5 +7,5 @@ import ba.unsa.etf.rpr.exceptions.MyException;
 import java.util.List;
 
 public interface UsersDao extends Dao<User>{
-    boolean searchByName(String username) throws MyException;
+    boolean searchByName(String username, String password) throws MyException;
 }

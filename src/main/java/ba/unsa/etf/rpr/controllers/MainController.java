@@ -74,7 +74,9 @@ public class MainController {
             noviZaUbaciti.setBrCasovaSedmicno(noviPredmetZaDodati.getBrCasovaSedmicno());
             noviZaUbaciti.setNaziv(noviPredmetZaDodati.getNaziv());
             noviZaUbaciti.setBrCasovaSemestralno(noviPredmetZaDodati.getBrCasovaSemestralno());
+
             oldSubjectManager.add(noviZaUbaciti);
+            // OVDJEEEEEEEEEE
             userSubjectManager.deleteByName(username, oldSubject.getNaziv());
             userSubjectManager.addNewUserSubject(username, noviZaUbaciti.getNaziv());
             LastController lastController = new LastController(username);

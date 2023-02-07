@@ -3,12 +3,12 @@ package ba.unsa.etf.rpr.domain;
 public class User implements Idable {
     private Integer id;
     private String username;
-    private Integer brIndeksa;
+    private String brIndeksa;
 
     public User() {
     }
 
-    public User(Integer id, String imeIPrezime, Integer brIndeksa) {
+    public User(Integer id, String imeIPrezime, String brIndeksa) {
         this.id = id;
         this.username = imeIPrezime;
         this.brIndeksa = brIndeksa;
@@ -22,11 +22,11 @@ public class User implements Idable {
         this.username = username;
     }
 
-    public int getBrIndeksa() {
+    public String getBrIndeksa() {
         return brIndeksa;
     }
 
-    public void setBrIndeksa(Integer brIndeksa) {
+    public void setBrIndeksa(String brIndeksa) {
         this.brIndeksa = brIndeksa;
     }
 

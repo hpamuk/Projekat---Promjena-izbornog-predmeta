@@ -71,10 +71,28 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
             preparedStatement.setInt(5, oldSubject.getBrCasovaSedmicno());
             preparedStatement.executeUpdate();
             return oldSubject;
+            // ne mozete zamijeniti predmetom kojeg cec imate
+
+
         } catch (SQLException e) {
             System.out.println("Neki problem u radu sa novom funkcijom dodavanja starih predmeta!");
         }
         return null;
+    }
+
+    @Override
+    public List<OldSubject> getOdgovarajuce(String username) throws MyException {
+        UserSubjectManager userSubjectManager = new UserSubjectManager();
+        List<UserSubject> listaOdabranih = userSubjectManager.getByUsername(username);
+        List<OldSubject> svi = this.getAll();
+        List<OldSubject> zaVracanje = new ArrayList<>();
+        for (UserSubject u : listaOdabranih) {
+            for (OldSubject o : svi) {
+                if(u.getNaziv().equals(o.getNaziv()))
+                    zaVracanje.add(o);
+            }
+        }
+        return zaVracanje;
     }
 
 
