@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `NewSubjects`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `NewSubjects` (
-  `id` int NOT NULL,
+  `id` int DEFAULT NULL,
   `naziv` varchar(60) NOT NULL,
   `profesor` varchar(60) NOT NULL,
   `brCasovaSemestralno` int NOT NULL,
@@ -95,30 +95,32 @@ INSERT INTO `Users` VALUES (3,'ffatic1',1432),(2,'mmehic1',1324),(1,'mmujic1',12
 UNLOCK TABLES;
 
 --
--- Table structure for table `Users-Subjects`
+-- Table structure for table `users_subjects`
 --
 
-DROP TABLE IF EXISTS `Users-Subjects`;
+DROP TABLE IF EXISTS `users_subjects`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Users-Subjects` (
-  `username` varchar(60) NOT NULL,
-  `naziv` varchar(60) NOT NULL,
-  PRIMARY KEY (`username`,`naziv`),
+CREATE TABLE `users_subjects` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(60) DEFAULT NULL,
+  `naziv` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `naziv_idx` (`naziv`),
+  KEY `username` (`username`),
   CONSTRAINT `naziv` FOREIGN KEY (`naziv`) REFERENCES `OldSubjects` (`naziv`),
   CONSTRAINT `username` FOREIGN KEY (`username`) REFERENCES `Users` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Users-Subjects`
+-- Dumping data for table `users_subjects`
 --
 
-LOCK TABLES `Users-Subjects` WRITE;
-/*!40000 ALTER TABLE `Users-Subjects` DISABLE KEYS */;
-INSERT INTO `Users-Subjects` VALUES ('mmehic1','Operativni sistemi'),('sselmic1','Operativni sistemi'),('mmujic1','Osnove baza podataka'),('ffatic1','Računarska grafika'),('mmehic1','Računarska grafika'),('mmujic1','Računarska grafika'),('sselmic1','Računarska grafika'),('ffatic1','Uvod u programiranje'),('mmujic1','Uvod u programiranje'),('mmehic1','Verifikacija i validacija softvera'),('sselmic1','Verifikacija i validacija softvera');
-/*!40000 ALTER TABLE `Users-Subjects` ENABLE KEYS */;
+LOCK TABLES `users_subjects` WRITE;
+/*!40000 ALTER TABLE `users_subjects` DISABLE KEYS */;
+INSERT INTO `users_subjects` VALUES (1,'mmehic1','Operativni sistemi'),(2,'sselmic1','Operativni sistemi'),(3,'mmujic1','Osnove baza podataka'),(4,'ffatic1','Računarska grafika'),(5,'mmehic1','Računarska grafika'),(6,'mmujic1','Računarska grafika'),(7,'sselmic1','Računarska grafika'),(8,'ffatic1','Uvod u programiranje'),(9,'mmujic1','Uvod u programiranje'),(10,'mmehic1','Verifikacija i validacija softvera'),(11,'sselmic1','Verifikacija i validacija softvera');
+/*!40000 ALTER TABLE `users_subjects` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -130,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-04 19:11:27
+-- Dump completed on 2023-02-07  3:14:04
