@@ -37,7 +37,7 @@
       <RowConstraints maxHeight="235.80002441406253" minHeight="10.0" prefHeight="113.60000000000002" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label fx:id="label" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="169.0" text="Došli ste na promjenu predmeta">
+      <Label fx:id="label" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="169.0" text="Ovdje mijenjate svoj izborni predmet!">
          <GridPane.margin>
             <Insets left="10.0" top="10.0" />
          </GridPane.margin>
@@ -132,7 +132,7 @@
                   <Insets left="10.0" top="18.0" />
                </HBox.margin>
             </Label>
-            <DatePicker prefHeight="26.0" prefWidth="217.0">
+            <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="217.0">
                <HBox.margin>
                   <Insets left="15.0" top="13.0" />
                </HBox.margin>

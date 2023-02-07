@@ -71,8 +71,6 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
             preparedStatement.setInt(5, oldSubject.getBrCasovaSedmicno());
             preparedStatement.executeUpdate();
             return oldSubject;
-            // ne mozete zamijeniti predmetom kojeg cec imate
-
 
         } catch (SQLException e) {
             System.out.println("Neki problem u radu sa novom funkcijom dodavanja starih predmeta!");

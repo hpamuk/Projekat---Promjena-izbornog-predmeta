@@ -19,6 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -44,6 +45,7 @@ public class MainController {
 
     @FXML
     public void initialize() throws MyException {
+
         colNaziv.setCellValueFactory(new PropertyValueFactory<NewSubject, String>("naziv"));
         colNazivProf.setCellValueFactory(new PropertyValueFactory<NewSubject, String> ("profesor"));
         colbrCasovaSemestralno.setCellValueFactory(new PropertyValueFactory<NewSubject, Integer> ("brCasovaSemestralno"));
