@@ -11,7 +11,6 @@ import java.util.List;
  * @author Hena Pamuk
  */
 public interface UsersDao extends Dao<User>{
-
     /**
      * Search by name boolean.
      *

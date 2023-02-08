@@ -22,6 +22,7 @@ public class UserSubject implements Idable{
      * @param username the username
      */
     public UserSubject(String naziv, String username) {
+        this.id = id;
         this.naziv = naziv;
         this.username = username;
     }
