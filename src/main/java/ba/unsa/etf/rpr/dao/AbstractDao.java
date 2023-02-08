@@ -7,7 +7,7 @@ import java.util.*;
 
 
 /**
- * Factory method for singleton implementation of DAOs
+ * Abstract class that implements core DAO CRUD methods for every entity
  * @author Hena Pamuk
  * @param <T> the type parameter
  */
