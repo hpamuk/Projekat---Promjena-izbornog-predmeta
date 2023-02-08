@@ -38,7 +38,7 @@ CREATE TABLE `NewSubjects` (
 
 LOCK TABLES `NewSubjects` WRITE;
 /*!40000 ALTER TABLE `NewSubjects` DISABLE KEYS */;
-INSERT INTO `NewSubjects` VALUES (2,'Analiza i dizajn','Prof.dr. Dženana Đonko',36,4),(1,'Inženjerska matematika','Prf.dr. Naida Mujić',40,6),(4,'Organizacija softverskog projekta','Prof.dr. Samir Omanović',40,6),(3,'Sistemsko programiranje','Prof.dr. Samir Ribić',38,5),(5,'Vještačka inteligencija','Prof.dr. Amila Akadić',40,6);
+INSERT INTO `NewSubjects` VALUES (1,'Analiza i dizajn','Prof.dr. Dženana Đonko',36,4),(2,'Inženjerska matematika','Prf.dr. Naida Mujić',40,6),(3,'Organizacija softverskog projekta','Prof.dr. Samir Omanović',40,6),(4,'Sistemsko programiranje','Prof.dr. Samir Ribić',38,5),(5,'Vještačka inteligencija','Prof.dr. Amila Akadić',40,6);
 /*!40000 ALTER TABLE `NewSubjects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `OldSubjects` (
 
 LOCK TABLES `OldSubjects` WRITE;
 /*!40000 ALTER TABLE `OldSubjects` DISABLE KEYS */;
-INSERT INTO `OldSubjects` VALUES (3,'Operativni sistemi','Prof.dr. Samir Ribić',40,6),(2,'Osnove baza podataka','Prof.dr. Emir Buza',38,5),(5,'Računarska grafika','Prof.dr. Selma Rizvić',36,4),(1,'Uvod u programiranje','Prof.dr. Dino Kečo',40,6),(4,'Verifikacija i validacija softvera','Prof.dr. Dženana Đonko',40,6);
+INSERT INTO `OldSubjects` VALUES (1,'Operativni sistemi','Prof.dr. Samir Ribić',40,6),(2,'Osnove baza podataka','Prof.dr. Emir Buza',38,5),(3,'Računarska grafika','Prof.dr. Selma Rizvić',36,4),(4,'Uvod u programiranje','Prof.dr. Dino Kečo',40,6),(5,'Verifikacija i validacija softvera','Prof.dr. Dženana Đonko',40,6);
 /*!40000 ALTER TABLE `OldSubjects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +79,7 @@ DROP TABLE IF EXISTS `Users`;
 CREATE TABLE `Users` (
   `id` int NOT NULL,
   `username` varchar(60) NOT NULL,
-  `brIndeksa` int NOT NULL,
+  `brIndeksa` varchar(45) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -90,7 +90,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (3,'ffatic1',1432),(2,'mmehic1',1324),(1,'mmujic1',1234),(4,'sselmic1',4321);
+INSERT INTO `Users` VALUES (3,'ffatic1','1432'),(2,'mmehic1','1324'),(1,'mmujic1','1234'),(4,'sselmic1','4321');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +110,7 @@ CREATE TABLE `users_subjects` (
   KEY `username` (`username`),
   CONSTRAINT `naziv` FOREIGN KEY (`naziv`) REFERENCES `OldSubjects` (`naziv`),
   CONSTRAINT `username` FOREIGN KEY (`username`) REFERENCES `Users` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-07  3:14:04
+-- Dump completed on 2023-02-09  0:35:46
