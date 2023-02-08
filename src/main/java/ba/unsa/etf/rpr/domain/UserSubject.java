@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.domain;
 
+import java.util.Objects;
+
 /**
  * Bean for User subject
  *  @author Hena Pamuk
@@ -18,10 +20,11 @@ public class UserSubject implements Idable{
     /**
      * Instantiates a new User subject.
      *
+     * @param id       the id
      * @param naziv    the naziv
      * @param username the username
      */
-    public UserSubject(String naziv, String username) {
+    public UserSubject(Integer id, String naziv, String username) {
         this.id = id;
         this.naziv = naziv;
         this.username = username;
@@ -73,4 +76,25 @@ public class UserSubject implements Idable{
         return id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserSubject that = (UserSubject) o;
+        return Objects.equals(id, that.id) && Objects.equals(naziv, that.naziv) && Objects.equals(username, that.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, naziv, username);
+    }
+
+    @Override
+    public String toString() {
+        return "UserSubject{" +
+                "id=" + id +
+                ", naziv='" + naziv + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

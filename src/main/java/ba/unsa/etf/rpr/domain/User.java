@@ -1,8 +1,11 @@
 package ba.unsa.etf.rpr.domain;
 
+import java.util.Objects;
+
 /**
  * Bean for User
- *  @author Hena Pamuk
+ *
+ * @author Hena Pamuk
  */
 public class User implements Idable {
     private Integer id;
@@ -74,4 +77,25 @@ public class User implements Idable {
         return id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) && Objects.equals(username, user.username) && Objects.equals(brIndeksa, user.brIndeksa);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, brIndeksa);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", brIndeksa='" + brIndeksa + '\'' +
+                '}';
+    }
 }

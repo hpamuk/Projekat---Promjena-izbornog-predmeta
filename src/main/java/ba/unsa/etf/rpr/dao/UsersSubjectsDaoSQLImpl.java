@@ -60,6 +60,7 @@ public class UsersSubjectsDaoSQLImpl extends AbstractDao<UserSubject> implements
         return row;
     }
 
+    @Override
     public List<UserSubject> getByUsername(String username) throws MyException {
         return executeQuery("SELECT * FROM users_subjects WHERE username = ?", new Object[]{username});
     }

@@ -4,7 +4,8 @@ import java.util.Objects;
 
 /**
  * Bean for New subject
- *  @author Hena Pamuk
+ *
+ * @author Hena Pamuk
  */
 public class NewSubject implements Idable{
     private Integer id;
@@ -134,13 +135,7 @@ public class NewSubject implements Idable{
 
     @Override
     public String toString() {
-        return "NewSubject{" +
-                "id=" + id +
-                ", naziv='" + naziv + '\'' +
-                ", nazivProfesora='" + profesor + '\'' +
-                ", brCasovaSemestralno=" + brCasovaSemestralno +
-                ", brCasovaSedmicno=" + brCasovaSedmicno +
-                '}';
+        return naziv;
     }
 
 }

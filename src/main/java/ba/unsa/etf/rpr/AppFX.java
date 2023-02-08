@@ -11,11 +11,10 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
 /**
- * The type App.
- *
+ *  Main class for working with JavaFX framework
  * @author Hena Pamuk
  */
-public class App extends Application {
+public class AppFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
@@ -34,7 +33,9 @@ public class App extends Application {
      *
      * @param args the input arguments
      */
-    public static void main(String[] args) {
+   /*
+   public static void main(String[] args) {
         launch(args);
-    }
+   }
+    */
 }
