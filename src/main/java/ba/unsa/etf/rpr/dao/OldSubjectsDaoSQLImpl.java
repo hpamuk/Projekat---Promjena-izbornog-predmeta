@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.business.UserSubjectManager;
+import ba.unsa.etf.rpr.domain.NewSubject;
 import ba.unsa.etf.rpr.domain.OldSubject;
 import ba.unsa.etf.rpr.domain.UserSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
@@ -70,7 +71,14 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
     }
 
    @Override
-   public OldSubject addOldSubject(OldSubject oldSubject) {
+   public OldSubject addOldSubject(NewSubject newSubjectToAdd) {
+        // trazilo prebacivanje u OldSubject iz nekog razloga
+        OldSubject oldSubject = new OldSubject();
+        oldSubject.setId(newSubjectToAdd.getId());
+        oldSubject.setProfesor(newSubjectToAdd.getProfesor());
+        oldSubject.setBrCasovaSedmicno(newSubjectToAdd.getBrCasovaSedmicno());
+        oldSubject.setNaziv(newSubjectToAdd.getNaziv());
+        oldSubject.setBrCasovaSemestralno(newSubjectToAdd.getBrCasovaSemestralno());
         String query = "INSERT INTO OldSubjects (id,naziv,profesor,brCasovaSemestralno,brCasovaSedmicno) VALUES (?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(query);

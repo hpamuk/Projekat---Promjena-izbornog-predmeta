@@ -111,15 +111,9 @@ public class MainController {
                 alert.showAndWait();
                 return;
             }
-            OldSubject noviZaUbaciti = new OldSubject();
-            noviZaUbaciti.setId(noviPredmetZaDodati.getId());
-            noviZaUbaciti.setProfesor(noviPredmetZaDodati.getProfesor());
-            noviZaUbaciti.setBrCasovaSedmicno(noviPredmetZaDodati.getBrCasovaSedmicno());
-            noviZaUbaciti.setNaziv(noviPredmetZaDodati.getNaziv());
-            noviZaUbaciti.setBrCasovaSemestralno(noviPredmetZaDodati.getBrCasovaSemestralno());
-            oldSubjectManager.add(noviZaUbaciti);
+            oldSubjectManager.add(noviPredmetZaDodati);
             userSubjectManager.deleteByName(username, oldSubject.getNaziv());
-            userSubjectManager.addNewUserSubject(username, noviZaUbaciti.getNaziv());
+            userSubjectManager.addNewUserSubject(username, noviPredmetZaDodati.getNaziv());
             LastController lastController = new LastController(username);
             loader.setController(lastController);
             Parent root = loader.load();

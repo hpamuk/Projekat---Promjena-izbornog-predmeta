@@ -63,7 +63,7 @@ public class OldSubjectManager {
      *
      * @param o the o
      */
-    public void add(OldSubject o) {
+    public void add(NewSubject o) {
         DaoFactory.oldSubjectsDao().addOldSubject(o);
     }
 

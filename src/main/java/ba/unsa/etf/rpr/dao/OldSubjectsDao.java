@@ -1,4 +1,5 @@
 package ba.unsa.etf.rpr.dao;
+import ba.unsa.etf.rpr.domain.NewSubject;
 import ba.unsa.etf.rpr.domain.OldSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
@@ -13,10 +14,10 @@ public interface OldSubjectsDao extends Dao<OldSubject> {
     /**
      * Add old subject old subject.
      *
-     * @param oldSubject the old subject
+     * @param newSubjectToAdd the old subject
      * @return the old subject
      */
-    public OldSubject addOldSubject(OldSubject oldSubject);
+    public OldSubject addOldSubject(NewSubject newSubjectToAdd);
 
     /**
      * Gets odgovarajuce.
