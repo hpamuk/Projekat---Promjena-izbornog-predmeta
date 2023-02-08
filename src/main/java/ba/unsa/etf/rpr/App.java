@@ -13,7 +13,7 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 /**
  * The type App.
  *
- * @author henap
+ * @author Hena Pamuk
  */
 public class App extends Application {
     @Override

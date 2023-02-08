@@ -1,12 +1,9 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.OldSubjectManager;
-import ba.unsa.etf.rpr.dao.OldSubjectsDao;
-import ba.unsa.etf.rpr.dao.OldSubjectsDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.OldSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,20 +17,52 @@ import java.io.IOException;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
+/**
+ * JavaFX controller
+ * @author Hena Pamuk
+ */
 public class AfterLoginController {
+    /**
+     * The Wellcome label.
+     */
     public Label wellcomeLabel;
+    /**
+     * The Old subject table.
+     */
     public TableView<OldSubject> oldSubjectTable;
+    /**
+     * The Col naziv.
+     */
     public TableColumn<OldSubject, String> colNaziv;
+    /**
+     * The Col naziv prof.
+     */
     public TableColumn<OldSubject, String>  colNazivProf;
+    /**
+     * The Colbr casova semestralno.
+     */
     public TableColumn<OldSubject, Integer>  colbrCasovaSemestralno;
+    /**
+     * The Col br casova sedmicno.
+     */
     public TableColumn<OldSubject, Integer>  colBrCasovaSedmicno;
     private final OldSubjectManager oldSubjectManager = new OldSubjectManager();
     private String username;
 
+    /**
+     * Instantiates a new After login controller.
+     *
+     * @param name the name
+     */
     public AfterLoginController(String name) {
         username = name;
     }
 
+    /**
+     * Initialize.
+     *
+     * @throws MyException the my exception
+     */
     @FXML
     public void initialize() throws MyException {
         colNaziv.setCellValueFactory(new PropertyValueFactory<OldSubject, String>("naziv"));
@@ -52,6 +81,12 @@ public class AfterLoginController {
         }
     }
 
+    /**
+     * On action change.
+     *
+     * @param actionEvent the action event
+     * @throws IOException the io exception
+     */
     public void onActionChange(ActionEvent actionEvent) throws IOException {
         try {
             OldSubject predmetZaPromijeniti = oldSubjectTable.getSelectionModel().getSelectedItem();

@@ -1,13 +1,8 @@
 package ba.unsa.etf.rpr.controllers;
 
-//i dodaj potrebne importe
-
-
-import ba.unsa.etf.rpr.business.OldSubjectManager;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.exceptions.MyException;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -16,17 +11,32 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
+/**
+ * JavaFX controller
+ * @author Hena Pamuk
+ */
 public class LoginController {
+    /**
+     * The Username field.
+     */
     public TextField usernameField;
+    /**
+     * The Password field.
+     */
     public PasswordField passwordField;
     private final UserManager userManager = new UserManager();
 
+    /**
+     * Login click.
+     *
+     * @param actionEvent the action event
+     * @throws IOException the io exception
+     * @throws MyException the my exception
+     */
     public void loginClick(ActionEvent actionEvent) throws IOException, MyException {
         if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -58,6 +68,11 @@ public class LoginController {
         stage.show();
     }
 
+    /**
+     * Cancel click.
+     *
+     * @param actionEvent the action event
+     */
     public void cancelClick(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Stage stage = (Stage) n.getScene().getWindow();

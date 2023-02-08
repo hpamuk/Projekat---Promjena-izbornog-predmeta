@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * MySQL Implementation of DAO
+ * @author Hena Pamuk
+ */
 public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao {
     private static UsersDaoSQLImpl instance = null;
 
@@ -16,12 +20,20 @@ public class UsersDaoSQLImpl extends AbstractDao<User> implements UsersDao {
         super("Users");
     }
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static UsersDaoSQLImpl getInstance() {
         if (instance == null)
             instance = new UsersDaoSQLImpl();
         return instance;
     }
 
+    /**
+     * Remove instance.
+     */
     public static void removeInstance() {
         if (instance != null)
             instance = null;

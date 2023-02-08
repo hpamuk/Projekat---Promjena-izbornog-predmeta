@@ -1,11 +1,9 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.business.OldSubjectManager;
 import ba.unsa.etf.rpr.business.UserSubjectManager;
 import ba.unsa.etf.rpr.domain.OldSubject;
 import ba.unsa.etf.rpr.domain.UserSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +13,10 @@ import java.util.Map;
 import java.util.TreeMap;
 
 
+/**
+ * MySQL Implementation of DAO
+ * @author Hena Pamuk
+ */
 public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements OldSubjectsDao {
     private static  OldSubjectsDaoSQLImpl instance = null;
 
@@ -22,12 +24,20 @@ public class OldSubjectsDaoSQLImpl extends AbstractDao<OldSubject> implements Ol
         super("OldSubjects");
     }
 
+    /**
+     * Get instance old subjects dao sql.
+     *
+     * @return the old subjects dao sql
+     */
     public static OldSubjectsDaoSQLImpl getInstance(){
         if(instance==null)
             instance = new OldSubjectsDaoSQLImpl();
         return instance;
     }
 
+    /**
+     * Remove instance.
+     */
     public static void removeInstance(){
         if(instance!=null)
             instance=null;

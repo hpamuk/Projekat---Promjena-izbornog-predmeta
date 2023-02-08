@@ -3,10 +3,8 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.business.NewSubjectManager;
 import ba.unsa.etf.rpr.business.OldSubjectManager;
 import ba.unsa.etf.rpr.business.UserSubjectManager;
-import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.NewSubject;
 import ba.unsa.etf.rpr.domain.OldSubject;
-import ba.unsa.etf.rpr.domain.UserSubject;
 import ba.unsa.etf.rpr.exceptions.MyException;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -19,18 +17,38 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.List;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
+/**
+ * JavaFX controller
+ * @author Hena Pamuk
+ */
 public class MainController {
 
+    /**
+     * The Label.
+     */
     public Label label;
+    /**
+     * The New subject table.
+     */
     public TableView<NewSubject> newSubjectTable;
+    /**
+     * The Col naziv.
+     */
     public TableColumn<NewSubject, String> colNaziv;
+    /**
+     * The Col naziv prof.
+     */
     public TableColumn<NewSubject, String>  colNazivProf;
+    /**
+     * The Colbr casova semestralno.
+     */
     public TableColumn<NewSubject, Integer>  colbrCasovaSemestralno;
+    /**
+     * The Colbr casova sedmicno.
+     */
     public TableColumn<NewSubject, Integer>  colbrCasovaSedmicno;
     private final OldSubjectManager oldSubjectManager = new OldSubjectManager();
     private final NewSubjectManager newSubjectManager = new NewSubjectManager();
@@ -38,11 +56,22 @@ public class MainController {
     private OldSubject oldSubject = null;
     private String username;
 
+    /**
+     * Instantiates a new Main controller.
+     *
+     * @param oldSubject the old subject
+     * @param username   the username
+     */
     public MainController(OldSubject oldSubject, String username) {
         this.oldSubject = oldSubject;
         this.username = username;
     }
 
+    /**
+     * Initialize.
+     *
+     * @throws MyException the my exception
+     */
     @FXML
     public void initialize() throws MyException {
 
@@ -63,6 +92,12 @@ public class MainController {
     }
 
 
+    /**
+     * On action podnesi.
+     *
+     * @param actionEvent the action event
+     * @throws IOException the io exception
+     */
     public void onActionPodnesi(ActionEvent actionEvent) throws IOException {
         try {
             NewSubject noviPredmetZaDodati = newSubjectTable.getSelectionModel().getSelectedItem();
@@ -103,6 +138,11 @@ public class MainController {
         }
     }
 
+    /**
+     * Cancel click.
+     *
+     * @param actionEvent the action event
+     */
     public void cancelClick(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Stage stage = (Stage) n.getScene().getWindow();

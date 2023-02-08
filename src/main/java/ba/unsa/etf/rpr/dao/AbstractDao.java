@@ -4,17 +4,22 @@ import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.MyException;
 import java.sql.*;
 import java.util.*;
-import java.io.IOException;
 
-/*
- Abstract class that implements core DAO CRUD methods for every entity
+
+/**
+ * Factory method for singleton implementation of DAOs
+ * @author Hena Pamuk
+ * @param <T> the type parameter
  */
-
-
 public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     private static Connection connection = null;
     private String tableName;
 
+    /**
+     * Instantiates a new Abstract dao.
+     *
+     * @param tableName the table name
+     */
     public AbstractDao(String tableName) {
         this.tableName = tableName;
         createConnection();
@@ -46,12 +51,30 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Get connection connection.
+     *
+     * @return the connection
+     */
     public static Connection getConnection(){
         return AbstractDao.connection;
     }
 
+    /**
+     * Row to object t.
+     *
+     * @param rs the rs
+     * @return the t
+     * @throws MyException the my exception
+     */
     public abstract T row2object(ResultSet rs) throws MyException;
 
+    /**
+     * Object to row map.
+     *
+     * @param object the object
+     * @return the map
+     */
     public abstract Map<String, Object> object2row(T object);
 
     public T getById(int id) throws MyException {
@@ -124,6 +147,14 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Execute query list.
+     *
+     * @param query  the query
+     * @param params the params
+     * @return the list
+     * @throws MyException the my exception
+     */
     public List<T> executeQuery(String query, Object[] params) throws MyException{
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -143,6 +174,14 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Execute query unique t.
+     *
+     * @param query  the query
+     * @param params the params
+     * @return the t
+     * @throws MyException the my exception
+     */
     public T executeQueryUnique(String query, Object[] params) throws MyException {
         List<T> result = executeQuery(query, params);
         if (result != null && result.size() == 1){

@@ -2,6 +2,10 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
+/**
+ * Bean for Old subject
+ *  @author Hena Pamuk
+ */
 public class OldSubject implements Idable{
     private Integer id;
     private String naziv;
@@ -9,9 +13,21 @@ public class OldSubject implements Idable{
     private Integer brCasovaSemestralno;
     private Integer brCasovaSedmicno;
 
+    /**
+     * Instantiates a new Old subject.
+     */
     public OldSubject() {
     }
 
+    /**
+     * Instantiates a new Old subject.
+     *
+     * @param id                  the id
+     * @param naziv               the naziv
+     * @param profesor            the profesor
+     * @param brCasovaSemestralno the br casova semestralno
+     * @param brCasovaSedmicno    the br casova sedmicno
+     */
     public OldSubject(Integer id, String naziv, String profesor, Integer brCasovaSemestralno, Integer brCasovaSedmicno) {
         this.id = id;
         this.naziv = naziv;
@@ -20,34 +36,74 @@ public class OldSubject implements Idable{
         this.brCasovaSedmicno = brCasovaSedmicno;
     }
 
+    /**
+     * Gets naziv.
+     *
+     * @return the naziv
+     */
     public String getNaziv() {
         return naziv;
     }
 
+    /**
+     * Sets naziv.
+     *
+     * @param naziv the naziv
+     */
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
 
+    /**
+     * Gets profesor.
+     *
+     * @return the profesor
+     */
     public String getProfesor() {
         return profesor;
     }
 
+    /**
+     * Sets profesor.
+     *
+     * @param profesor the profesor
+     */
     public void setProfesor(String profesor) {
         this.profesor = profesor;
     }
 
+    /**
+     * Gets br casova semestralno.
+     *
+     * @return the br casova semestralno
+     */
     public int getBrCasovaSemestralno() {
         return brCasovaSemestralno;
     }
 
+    /**
+     * Sets br casova semestralno.
+     *
+     * @param brCasovaSemestralno the br casova semestralno
+     */
     public void setBrCasovaSemestralno(Integer brCasovaSemestralno) {
         this.brCasovaSemestralno = brCasovaSemestralno;
     }
 
+    /**
+     * Gets br casova sedmicno.
+     *
+     * @return the br casova sedmicno
+     */
     public int getBrCasovaSedmicno() {
         return brCasovaSedmicno;
     }
 
+    /**
+     * Sets br casova sedmicno.
+     *
+     * @param brCasovaSedmicno the br casova sedmicno
+     */
     public void setBrCasovaSedmicno(Integer brCasovaSedmicno) {
         this.brCasovaSedmicno = brCasovaSedmicno;
     }

@@ -9,6 +9,10 @@ import java.sql.SQLException;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * MySQL Implementation of DAO
+ * @author Hena Pamuk
+ */
 public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements NewSubjectsDao{
     private static  NewSubjectsDaoSQLImpl instance = null;
 
@@ -16,12 +20,20 @@ public class NewSubjectsDaoSQLImpl extends AbstractDao<NewSubject> implements Ne
         super("NewSubjects");
     }
 
+    /**
+     * Get instance new subjects dao sql.
+     *
+     * @return the new subjects dao sql
+     */
     public static NewSubjectsDaoSQLImpl getInstance(){
         if(instance==null)
             instance = new NewSubjectsDaoSQLImpl();
         return instance;
     }
 
+    /**
+     * Remove instance.
+     */
     public static void removeInstance(){
         if(instance!=null)
             instance=null;
