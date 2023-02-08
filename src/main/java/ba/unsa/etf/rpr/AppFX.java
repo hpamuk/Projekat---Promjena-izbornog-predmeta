@@ -13,6 +13,7 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 /**
  *  Main class for working with JavaFX framework
  * @author Hena Pamuk
+ * @param primaryStage
  */
 public class AppFX extends Application {
     @Override
