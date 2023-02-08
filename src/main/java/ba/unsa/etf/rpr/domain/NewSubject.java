@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Objects;
  *
  * @author Hena Pamuk
  */
-public class NewSubject implements Idable{
+public class NewSubject implements Idable, Serializable {
     private Integer id;
     private String naziv;
     private String profesor;

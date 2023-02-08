@@ -1,12 +1,13 @@
 package ba.unsa.etf.rpr.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Bean for User subject
  *  @author Hena Pamuk
  */
-public class UserSubject implements Idable{
+public class UserSubject implements Idable, Serializable {
     private Integer id;
     private String naziv;
     private String username;
